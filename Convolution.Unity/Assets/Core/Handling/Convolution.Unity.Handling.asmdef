@@ -1,9 +1,9 @@
 {
-    "name": "Convolution.Unity.MiniGames",
+    "name": "Convolution.Unity.Handling",
     "rootNamespace": "Convolution",
     "references": [
         "GUID:4a2cbbc2218ef9d4fbdc890c2f15375f",
-        "GUID:a33276f181eec8648a25923e1a14abf5"
+        "GUID:e761b36537be1ee4ab8718885264eab8"
     ],
     "includePlatforms": [],
     "excludePlatforms": [],

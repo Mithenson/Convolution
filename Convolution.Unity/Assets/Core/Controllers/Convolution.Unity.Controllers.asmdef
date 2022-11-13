@@ -1,8 +1,9 @@
 {
     "name": "Convolution.Unity.Controllers",
-    "rootNamespace": "",
+    "rootNamespace": "Convolution",
     "references": [
-        "GUID:4a2cbbc2218ef9d4fbdc890c2f15375f"
+        "GUID:4a2cbbc2218ef9d4fbdc890c2f15375f",
+        "GUID:32bdfea8680ec5c41bbc6098e8bb005c"
     ],
     "includePlatforms": [],
     "excludePlatforms": [],

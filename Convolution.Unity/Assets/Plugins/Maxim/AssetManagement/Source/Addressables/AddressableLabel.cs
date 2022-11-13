@@ -2,7 +2,7 @@
 
 namespace Maxim.AssetManagement.Addressables
 {
-	[CreateAssetMenu(menuName = "Haven/Asset Management/Addressable/Label", fileName = nameof(AddressableLabel))]
+	[CreateAssetMenu(menuName = "Maxim/Asset management/Addressable/Label", fileName = nameof(AddressableLabel))]
 	public sealed class AddressableLabel : ScriptableObject
 	{
 		[SerializeField]

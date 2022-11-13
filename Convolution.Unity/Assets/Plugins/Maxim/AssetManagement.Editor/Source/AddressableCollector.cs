@@ -5,7 +5,7 @@ using UnityEngine;
 
 namespace Maxim.AssetManagement.Editor
 {
-	[CreateAssetMenu(menuName = "Haven/Asset Management/Addressable/Collector", fileName = nameof(AddressableCollector))]
+	[CreateAssetMenu(menuName = "Maxim/Asset management/Addressable/Collector", fileName = nameof(AddressableCollector))]
 	public class AddressableCollector : ScriptableObject
 	{
 		[SerializeField]
