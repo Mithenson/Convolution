@@ -36,6 +36,9 @@
 */.idea/**/uiDesigner.xml
 */.idea/**/dbnavigator.xml
 */.idea/**/contentModel.xml
+*/.idea/**/encodings.xml
+*/.idea/**/indexLayout.xml
+*/.idea/**/vcs.xml
 */.idea/artifacts
 */.idea/compiler.xml*.rsuser
 */.idea/jarRepositories.xml*.suo
