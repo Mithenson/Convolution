@@ -1,0 +1,19 @@
+{
+    "name": "Convolution.Unity.Scenes",
+    "rootNamespace": "",
+    "references": [
+        "GUID:4a2cbbc2218ef9d4fbdc890c2f15375f",
+        "GUID:a33276f181eec8648a25923e1a14abf5",
+        "GUID:2be7ed02fca853e4f985c6ccb1cbaa07",
+        "GUID:bccf110ec9abc8045b5e1c7fe6eaa136"
+    ],
+    "includePlatforms": [],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
+}
