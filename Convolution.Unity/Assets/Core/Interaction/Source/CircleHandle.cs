@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-namespace Convolution.Handling
+namespace Convolution.Interaction
 {
 	public sealed class CircleHandle : Handle
 	{
@@ -10,7 +10,7 @@ namespace Convolution.Handling
 
 		public override bool IsHovered(Cursor cursor, out float separation)
 		{
-			var selfPosition = new Vector2(transform.position.x, transform.position.z);
+			var selfPosition = (Vector2)transform.position;
 
 			separation = (cursor.Position - selfPosition).magnitude;
 			return separation < cursor.Radius + _radius;
@@ -18,7 +18,7 @@ namespace Convolution.Handling
 
 		#if UNITY_EDITOR
 		
-		private void OnDrawGizmosSelected() => UnityEditor.Handles.DrawSolidDisc(transform.position, Vector3.up, _radius);
+		private void OnDrawGizmosSelected() => UnityEditor.Handles.DrawSolidDisc(transform.position, Vector3.forward, _radius);
 		
 		#endif
 	}

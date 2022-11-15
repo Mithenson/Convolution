@@ -1,7 +1,7 @@
 using Maxim.AssetManagement.Configurations;
 using UnityEngine;
 
-namespace Convolution.Handling
+namespace Convolution.Interaction
 {
     public sealed class Cursor
     {

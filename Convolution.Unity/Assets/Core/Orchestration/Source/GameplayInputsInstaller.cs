@@ -1,7 +1,7 @@
 ﻿using Maxim.AssetManagement.Configurations;
 using Zenject;
 
-namespace Convolution
+namespace Convolution.Orchestration
 {
 	public sealed class GameplayInputsInstaller : Installer<GameplayInputsInstaller>
 	{

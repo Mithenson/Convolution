@@ -11,6 +11,6 @@ namespace Convolution.Controllers
 
 		public IReadOnlyList<Controller> Controllers => _controllers;
 
-		public void Initialize(IEnumerable<Controller> controllers) => _controllers.AddRange(controllers);
+		public void Bootup(IEnumerable<Controller> controllers) => _controllers.AddRange(controllers);
 	}
 }

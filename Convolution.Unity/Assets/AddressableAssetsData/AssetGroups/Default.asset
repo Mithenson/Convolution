@@ -25,6 +25,14 @@ MonoBehaviour:
     m_Address: GameplayInputsConfiguration
     m_ReadOnly: 0
     m_SerializedLabels: []
+  - m_GUID: 9fc0d4010bbf28b4594072e72b8655ab
+    m_Address: Game
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: 76e1b026f5fe78543b0332eed8228398
+    m_Address: QuickPlay
+    m_ReadOnly: 0
+    m_SerializedLabels: []
   m_ReadOnly: 0
   m_Settings: {fileID: 11400000, guid: 2660dd06d7c1cfb4381255ed6ad68a5c, type: 2}
   m_SchemaSet:

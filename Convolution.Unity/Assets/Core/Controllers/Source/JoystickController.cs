@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-using Cursor = Convolution.Handling.Cursor;
+using Cursor = Convolution.Interaction.Cursor;
 
 namespace Convolution.Controllers
 {
@@ -12,23 +12,50 @@ namespace Convolution.Controllers
 		[SerializeField]
 		[Min(0.1f)]
 		private float _extent;
-		
+
+		[SerializeField]
+		private bool _resetInputOnInteractionEnd;
+
+		private Vector2 _input;
+
+		public override IControllerInput ComputeInput() => new SimpleControllerInput<Vector2>(_input);
+
 		protected override bool IMP_TryStartInteraction(Cursor cursor) => true;
 
 		protected override bool IMP_TryPerpetuateInteraction(Cursor cursor, Vector2 drag)
 		{
-			var delta = cursor.Position - Position;
+			var selfPosition = (Vector2)transform.position;
 
-			if (delta.magnitude > _extent)
-				delta = delta.normalized * _extent;
+			var delta = cursor.Position - selfPosition;
+			var distance = delta.magnitude;
 
-			var stickPosition = Position + delta;
-			_stick.transform.position = new Vector3(stickPosition.x, _stick.transform.position.y, stickPosition.y);
+			if (distance > _extent)
+			{
+				var direction = delta.normalized;
+				delta = direction * _extent;
+
+				_input = direction;
+			}
+			else
+			{
+				_input = distance == 0.0f ? Vector2.zero : delta.normalized * (distance / _extent);
+			}
+
+			var stickPosition = selfPosition + delta;
+			_stick.transform.position = new Vector3(stickPosition.x, stickPosition.y, _stick.transform.position.z);
 
 			return true;
 		}
 
-		protected override void EXT_EndInteraction(Cursor cursor) => _stick.transform.position = new Vector3(Position.x, _stick.transform.position.y, Position.y);
+		protected override void EXT_EndInteraction(Cursor cursor)
+		{
+			var selfPosition = (Vector2)transform.position;
+			
+			_stick.transform.position = new Vector3(selfPosition.x, selfPosition.y, _stick.transform.position.z);
+			
+			if (_resetInputOnInteractionEnd)
+				_input = Vector2.zero;
+		}
 
 		public override bool IMP_TryPerpetuateRecuperation() => false;
 	}

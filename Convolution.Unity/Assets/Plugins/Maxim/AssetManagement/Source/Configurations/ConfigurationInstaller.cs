@@ -10,7 +10,7 @@ namespace Maxim.AssetManagement.Configurations
 			var handle = UnityEngine.AddressableAssets.Addressables.LoadAssetAsync<TConfiguration>(typeof(TConfiguration).Name);
 			handle.WaitForCompletion();
 
-			Container.Bind<ConfigurationMonitor<TConfiguration>>().FromInstance(new ConfigurationMonitor<TConfiguration>(handle.Result)).AsSingle();
+			Container.Bind<ConfigurationMonitor<TConfiguration>>().ToSelf().FromInstance(new ConfigurationMonitor<TConfiguration>(handle.Result)).AsSingle();
 		}
 	}
 }

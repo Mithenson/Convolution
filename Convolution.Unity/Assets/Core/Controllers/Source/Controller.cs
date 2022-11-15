@@ -1,14 +1,13 @@
-using Convolution.Handling;
+using Convolution.Interaction;
 using UnityEngine;
 
-using Cursor = Convolution.Handling.Cursor;
+using Cursor = Convolution.Interaction.Cursor;
 
 namespace Convolution.Controllers
 {
-	public abstract class Controller : HelperBehaviour
+	public abstract class Controller : MonoBehaviour
 	{
-		public ControllerState State { get; private set; }
-		public Handle Handle { get; private set; }
+		public ushort InputChannel;
 
 		private void Awake()
 		{
@@ -16,6 +15,9 @@ namespace Convolution.Controllers
 			EXT_Awake();
 		}
 		protected virtual void EXT_Awake() { }
+		
+		public ControllerState State { get; private set; }
+		public Handle Handle { get; private set; }
 
 		private void Update()
 		{
@@ -26,6 +28,8 @@ namespace Convolution.Controllers
 				State = ControllerState.AtRest;
 		}
 		protected virtual void EXT_Update() { }
+
+		public abstract IControllerInput ComputeInput();
 
 		public bool TryStartInteraction(Cursor cursor)
 		{

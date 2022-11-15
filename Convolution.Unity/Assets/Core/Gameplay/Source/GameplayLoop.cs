@@ -1,17 +1,30 @@
 using Convolution.Interaction;
+using Convolution.MiniGames.Source;
 using Zenject;
 
 namespace Convolution.Gameplay
 {
-    public class GameplayLoop : IInitializable, ITickable
+    public class GameplayLoop : ITickable
     {
         public bool IsEnabled;
         
         private readonly InteractionService _interactionService;
-        
-        public GameplayLoop(InteractionService interactionService) => _interactionService = interactionService;
+        private readonly ControllerInputBridgeService _controllerInputBridgeService;
 
-        public void Initialize() => IsEnabled = true;
+        private MiniGame _miniGame;
+        
+        public GameplayLoop(InteractionService interactionService, ControllerInputBridgeService controllerInputBridgeService)
+        {
+            _interactionService = interactionService;
+            _controllerInputBridgeService = controllerInputBridgeService;
+        }
+
+        public void Bootup(MiniGame miniGame)
+        {
+            _miniGame = miniGame;
+            
+            IsEnabled = true;
+        }
         
         void ITickable.Tick()
         {
@@ -19,6 +32,8 @@ namespace Convolution.Gameplay
                 return;
             
             _interactionService.Tick();
+            _controllerInputBridgeService.Tick(_miniGame);
+            _miniGame.Tick();
         }
     }
 }

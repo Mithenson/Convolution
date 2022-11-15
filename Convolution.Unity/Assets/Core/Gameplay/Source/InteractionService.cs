@@ -4,11 +4,11 @@ using UnityEngine;
 using UnityEngine.InputSystem;
 using Zenject;
 
-using Cursor = Convolution.Handling.Cursor;
+using Cursor = Convolution.Interaction.Cursor;
 
 namespace Convolution.Interaction
 {
-    public sealed class InteractionService : ITickable, IDisposable
+    public sealed class InteractionService : IDisposable
     {
         private readonly Cursor _cursor;
         private readonly ControllerRepository _controllerRepository;
@@ -33,8 +33,7 @@ namespace Convolution.Interaction
         public void Tick()
         {
             var cursorPosition = _gameplayInputsRepository.CursorPositionAction.ReadValue<Vector2>();
-            var cursorWorldPosition = Camera.main.ScreenToWorldPoint(cursorPosition);
-            _cursor.Position = new Vector2(cursorWorldPosition.x, cursorWorldPosition.z);
+            _cursor.Position = Camera.main.ScreenToWorldPoint(cursorPosition);
 
             if (_isInteracting)
             {
@@ -57,8 +56,6 @@ namespace Convolution.Interaction
 
                 _closetHoveredController = controller;
             }
-            
-            //Debug.Log($"Can interact with: {_closetHoveredController}!");
         }
 
         private void OnCursorDown(InputAction.CallbackContext ctxt)

@@ -1,9 +1,8 @@
-﻿using Convolution.Handling;
-using Convolution.Interaction;
+﻿using Convolution.Interaction;
 using Maxim.AssetManagement.Configurations;
 using Zenject;
 
-namespace Convolution
+namespace Convolution.Orchestration
 {
 	public sealed class InteractionInstaller : Installer<InteractionInstaller>
 	{

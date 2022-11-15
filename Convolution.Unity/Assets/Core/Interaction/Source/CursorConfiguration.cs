@@ -1,7 +1,7 @@
 ﻿using Maxim.AssetManagement.Configurations;
 using UnityEngine;
 
-namespace Convolution.Handling
+namespace Convolution.Interaction
 {
 	[CreateAssetMenu(menuName = "Convolution/Configurations/Cursor", fileName = nameof(CursorConfiguration))]
 	public sealed class CursorConfiguration : Configuration
