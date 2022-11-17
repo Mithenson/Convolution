@@ -108,7 +108,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1675025045117182775}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 1.7500002}
+  m_LocalPosition: {x: 0, y: 0, z: -1.75}
   m_LocalScale: {x: 0.75, y: 0.75, z: 0.75}
   m_Children: []
   m_Father: {fileID: 3961427373712791627}
@@ -200,7 +200,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5989356813897913801}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 1, y: 1, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 8833513719503721588}
@@ -218,6 +218,7 @@ GameObject:
   m_Component:
   - component: {fileID: 989157135341842594}
   - component: {fileID: 3139576730369244668}
+  - component: {fileID: 8393062680275758419}
   m_Layer: 0
   m_Name: Controller_Joystick
   m_TagString: Untagged
@@ -232,14 +233,14 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7054998396104818735}
-  m_LocalRotation: {x: -0.7071068, y: 0, z: 0, w: 0.7071068}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 3961427373712791627}
   m_Father: {fileID: 0}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: -90, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &3139576730369244668
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -252,5 +253,24 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 93390878ac0c46d4974ad4251d9b3042, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _center: {fileID: 8833513719503721588}
   _stick: {fileID: 9099763144247764572}
   _extent: 2
+  _resetInputOnInteractionEnd: 0
+--- !u!114 &8393062680275758419
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7054998396104818735}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 441c63e63cb145459d98c5d61cdb40c1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _cells:
+  - {x: 0, y: 0}
+  - {x: 1, y: 0}
+  - {x: 0, y: 1}
+  - {x: 1, y: 1}

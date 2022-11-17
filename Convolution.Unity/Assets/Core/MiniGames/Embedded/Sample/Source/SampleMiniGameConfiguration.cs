@@ -4,7 +4,7 @@ using UnityEngine;
 namespace Sample
 {
 	[CreateAssetMenu(menuName = "Convolution/MiniGames/Sample", fileName = nameof(SampleMiniGameConfiguration))]
-	public sealed class SampleMiniGameConfiguration : MiniGameConfiguration<SampleMiniGame>
+	public sealed class SampleMiniGameConfiguration : MiniGameConfiguration<SampleMiniGame.InputChannel, SampleMiniGame>
 	{
 		[SerializeField]
 		private GameObject _playerPrefab;

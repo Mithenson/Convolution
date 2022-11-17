@@ -2,22 +2,25 @@ using Convolution.Interaction;
 using UnityEngine;
 
 using Cursor = Convolution.Interaction.Cursor;
+using Grid = Convolution.Placement.Grid;
 
 namespace Convolution.Controllers
 {
 	public abstract class Controller : MonoBehaviour
 	{
-		public ushort InputChannel;
-
 		private void Awake()
 		{
 			Handle = GetComponentInChildren<Handle>();
+			Grid = GetComponent<Grid>();
+			
 			EXT_Awake();
 		}
 		protected virtual void EXT_Awake() { }
 		
+		public ushort InputChannel { get; set; }
 		public ControllerState State { get; private set; }
 		public Handle Handle { get; private set; }
+		public Grid Grid { get; private set; }
 
 		private void Update()
 		{

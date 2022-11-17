@@ -7,6 +7,9 @@ namespace Convolution.Controllers
 	public class JoystickController : Controller
 	{
 		[SerializeField]
+		private Transform _center;
+		
+		[SerializeField]
 		private Transform _stick;
 
 		[SerializeField]
@@ -24,7 +27,7 @@ namespace Convolution.Controllers
 
 		protected override bool IMP_TryPerpetuateInteraction(Cursor cursor, Vector2 drag)
 		{
-			var selfPosition = (Vector2)transform.position;
+			var selfPosition = (Vector2)_center.position;
 
 			var delta = cursor.Position - selfPosition;
 			var distance = delta.magnitude;
@@ -49,7 +52,7 @@ namespace Convolution.Controllers
 
 		protected override void EXT_EndInteraction(Cursor cursor)
 		{
-			var selfPosition = (Vector2)transform.position;
+			var selfPosition = (Vector2)_center.position;
 			
 			_stick.transform.position = new Vector3(selfPosition.x, selfPosition.y, _stick.transform.position.z);
 			

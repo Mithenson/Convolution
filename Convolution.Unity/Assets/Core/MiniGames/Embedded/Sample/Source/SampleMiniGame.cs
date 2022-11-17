@@ -13,8 +13,8 @@ namespace Sample
 
         public enum InputChannel : ushort
         {
-            Direction_01 = 1,
-            Direction_02 = 2
+            Movement = 1,
+            Direction = 2
         }
 
         #endregion
@@ -36,11 +36,11 @@ namespace Sample
             var vector2Input = (SimpleControllerInput<Vector2>)input;
             switch (channel)
             {
-                case InputChannel.Direction_01:
+                case InputChannel.Movement:
                     _player.transform.position += (Vector3)(vector2Input.Value * (Time.deltaTime * _configuration.PlayerSpeed));
                     break;
 
-                case InputChannel.Direction_02:
+                case InputChannel.Direction:
                     _player.transform.rotation = Quaternion.Euler(0.0f, 0.0f, Mathf.Atan2(-vector2Input.Value.x, vector2Input.Value.y) * Mathf.Rad2Deg);
                     break;
             }

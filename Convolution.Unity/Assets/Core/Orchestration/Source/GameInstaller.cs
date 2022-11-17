@@ -1,9 +1,8 @@
+using System.Collections.Generic;
 using System.Linq;
-using System.Threading.Tasks;
 using Convolution.Controllers;
 using Convolution.Gameplay;
 using Convolution.MiniGames.Source;
-using Maxim.AssetManagement.Configurations;
 using UnityEngine;
 using Zenject;
 
@@ -14,6 +13,9 @@ namespace Convolution.Orchestration
         [SerializeField]
         private MiniGameDisplayRepository _displayRepository;
 
+        [SerializeField]
+        private ControllerGrid _controllerGrid;
+
         private GameArgs _args;
         
         public override void InstallBindings()
@@ -22,6 +24,7 @@ namespace Convolution.Orchestration
 
             Container.Bind(_args.GameConfiguration.GetType()).ToSelf().FromInstance(_args.GameConfiguration).AsSingle();
             
+            PlacementInstaller.Install(Container);
             GameplayInputsInstaller.Install(Container);
             InteractionInstaller.Install(Container);
             ControllersInstaller.Install(Container);
@@ -33,12 +36,26 @@ namespace Convolution.Orchestration
                 Container.Bind(displayType).To(displayType).FromInstance(display).AsSingle();
             }
 
+            Container.Bind<ControllerGrid>().ToSelf().FromInstance(_controllerGrid).AsSingle();
+
             Container.Bind(typeof(GameplayLoop), typeof(ITickable)).To<GameplayLoop>().AsSingle();
         }
 
         public async void Initialize()
         {
-            var controllers = FindObjectsOfType<Controller>();
+            var controllers = new List<Controller>();
+            var controllerGrid = Container.Resolve<ControllerGrid>();
+            
+            foreach (var controllerPlacement in _args.GameConfiguration.ControllerPlacements)
+            {
+                var controller = Container.InstantiatePrefabForComponent<Controller>(controllerPlacement.Prefab);
+                
+                controller.InputChannel = controllerPlacement.InputChannel;
+                controllerGrid.Place(controllerPlacement.Position, controller);
+                
+                controllers.Add(controller);
+            }
+            
             Container.Resolve<ControllerRepository>().Bootup(controllers);
 
             var game = (MiniGame)Container.Instantiate(_args.GameConfiguration.GameType);
