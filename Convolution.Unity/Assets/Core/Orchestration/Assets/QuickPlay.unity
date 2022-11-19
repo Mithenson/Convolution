@@ -135,7 +135,7 @@ GameObject:
   - component: {fileID: 1253985711}
   - component: {fileID: 1253985710}
   m_Layer: 0
-  m_Name: Context
+  m_Name: QuickPlay_Context
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

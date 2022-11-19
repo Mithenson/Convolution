@@ -21,7 +21,8 @@ namespace Convolution.Controllers.Editor
             
             if (typeof(MiniGameConfiguration).IsAssignableFrom(outerType))
             {
-                var enumType = outerType.BaseType.GetGenericArguments()[0];
+                var gameType = outerType.BaseType.GetGenericArguments()[0];
+                var enumType =  gameType.BaseType.GetGenericArguments()[2];
 
                 var enumValue = (Enum)Enum.ToObject(enumType, (ushort)inputChannelProperty.ValueEntry.WeakSmartValue);
                 enumValue = EditorGUILayout.EnumPopup(inputChannelProperty.Label, enumValue);

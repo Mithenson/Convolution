@@ -10,7 +10,7 @@ namespace Maxim.Common.Utilities
 		public static IEnumerable<TAsset> LoadAllByTag<TAsset>(Tag tag)
 			where TAsset : Object, ITagged
 		{
-			var assets = Resources.LoadAll<TAsset>(null);
+			var assets = Resources.LoadAll<TAsset>(string.Empty);
 			return assets.Where(asset => asset.Tag == tag);
 		}
 	}

@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using Maxim.Common.Extensions;
+using UnityEngine;
 
 namespace Convolution.Interaction
 {
@@ -18,7 +19,15 @@ namespace Convolution.Interaction
 
 		#if UNITY_EDITOR
 		
-		private void OnDrawGizmosSelected() => UnityEditor.Handles.DrawSolidDisc(transform.position, Vector3.forward, _radius);
+		private void OnDrawGizmosSelected()       
+		{
+			var previousHandlesColor = UnityEditor.Handles.color;
+			UnityEditor.Handles.color = Color.white.SetAlpha(0.25f);
+            
+			UnityEditor.Handles.DrawSolidDisc(transform.position, Vector3.forward, _radius);
+
+			UnityEditor.Handles.color = previousHandlesColor;
+		}
 		
 		#endif
 	}

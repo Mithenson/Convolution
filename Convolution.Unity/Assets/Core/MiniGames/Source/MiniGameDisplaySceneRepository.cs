@@ -3,7 +3,7 @@ using UnityEngine;
 
 namespace Convolution.MiniGames.Source
 {
-	public sealed class MiniGameDisplayRepository : MonoBehaviour
+	public sealed class MiniGameDisplaySceneRepository : MonoBehaviour
 	{
 		private IMiniGameDisplay[] _displays;
 		

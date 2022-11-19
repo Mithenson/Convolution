@@ -7,11 +7,11 @@ namespace Convolution.MiniGames.Source
     public abstract class MiniGame
     {
         public abstract IMiniGameDisplay Display { get; }
-
+        
         public virtual Task Bootup() => Task.CompletedTask;
         
         public abstract void HandleInput(IControllerInput input, ushort channel);
-        public abstract void Tick();
+        public abstract MiniGameState Tick();
     }
     
     public abstract class MiniGame<TConfiguration, TDisplay, TInputChannel> : MiniGame 
@@ -21,11 +21,13 @@ namespace Convolution.MiniGames.Source
     {
         protected readonly TConfiguration _configuration;
         protected readonly TDisplay _display;
+        protected readonly ObjectFactory _factory;
 
-        protected MiniGame(TConfiguration configuration, TDisplay display)
+        protected MiniGame(TConfiguration configuration, TDisplay display, ObjectFactory factory)
         {
             _configuration = configuration;
             _display = display;
+            _factory = factory;
         }
 
         public override IMiniGameDisplay Display => _display;

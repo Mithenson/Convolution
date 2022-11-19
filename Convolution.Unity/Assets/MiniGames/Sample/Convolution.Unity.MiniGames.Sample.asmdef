@@ -1,10 +1,13 @@
 {
     "name": "Convolution.Unity.MiniGames.Sample",
-    "rootNamespace": "",
+    "rootNamespace": "Convolution",
     "references": [
         "GUID:4a2cbbc2218ef9d4fbdc890c2f15375f",
         "GUID:a33276f181eec8648a25923e1a14abf5",
-        "GUID:bccf110ec9abc8045b5e1c7fe6eaa136"
+        "GUID:bccf110ec9abc8045b5e1c7fe6eaa136",
+        "GUID:7d7ea9fdd4c28b44b8d3c9318bf2b3a0",
+        "GUID:0d8beb7f090555447a6cf5ce9e54dbb4",
+        "GUID:770e1d1230db51d409c9d2d63fb96a6d"
     ],
     "includePlatforms": [],
     "excludePlatforms": [],

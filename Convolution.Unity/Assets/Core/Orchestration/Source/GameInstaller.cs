@@ -3,6 +3,8 @@ using System.Linq;
 using Convolution.Controllers;
 using Convolution.Gameplay;
 using Convolution.MiniGames.Source;
+using Maxim.Common.Extensions;
+using Sirenix.OdinInspector;
 using UnityEngine;
 using Zenject;
 
@@ -11,34 +13,36 @@ namespace Convolution.Orchestration
     public class GameInstaller : MonoInstaller
     {
         [SerializeField]
-        private MiniGameDisplayRepository _displayRepository;
+        [FoldoutGroup("MiniGame")]
+        private MiniGameDisplaySceneRepository _miniGameDisplaySceneRepository;
+        
+        [SerializeField]
+        [FoldoutGroup("MiniGame")]
+        private MiniGameRenderer _miniGameRenderer;
 
         [SerializeField]
+        [FoldoutGroup("Controllers")]
         private ControllerGrid _controllerGrid;
 
         private GameArgs _args;
+        private DiContainer _miniGameContainer;
         
         public override void InstallBindings()
         {
             _args = Container.ParentContainers.First().Resolve<GameArgs>();
-
-            Container.Bind(_args.GameConfiguration.GetType()).ToSelf().FromInstance(_args.GameConfiguration).AsSingle();
             
             PlacementInstaller.Install(Container);
-            GameplayInputsInstaller.Install(Container);
+            ControllersInstaller.Install(Container, _controllerGrid);
             InteractionInstaller.Install(Container);
-            ControllersInstaller.Install(Container);
+            MiniGameDisplayInstaller.Install(Container, _miniGameDisplaySceneRepository, _miniGameRenderer);
+            GameplayInstaller.Install(Container);
 
-            var displays = _displayRepository.Displays;
-            foreach (var display in displays)
-            {
-                var displayType = display.GetType();
-                Container.Bind(displayType).To(displayType).FromInstance(display).AsSingle();
-            }
-
-            Container.Bind<ControllerGrid>().ToSelf().FromInstance(_controllerGrid).AsSingle();
-
-            Container.Bind(typeof(GameplayLoop), typeof(ITickable)).To<GameplayLoop>().AsSingle();
+            _miniGameContainer = Container.CreateSubContainer();
+            
+            _args.GameConfiguration.BindDependencies(_miniGameContainer);
+            _miniGameContainer.Bind<MiniGameKernel>().ToSelf().AsSingle();
+            _miniGameContainer.Bind(_args.GameConfiguration.GetType()).ToSelf().FromInstance(_args.GameConfiguration).AsSingle();
+            _miniGameContainer.Bind<ObjectFactory>().ToSelf().AsSingle();
         }
 
         public async void Initialize()
@@ -51,6 +55,8 @@ namespace Convolution.Orchestration
                 var controller = Container.InstantiatePrefabForComponent<Controller>(controllerPlacement.Prefab);
                 
                 controller.InputChannel = controllerPlacement.InputChannel;
+                controller.gameObject.SetLayer(Constants.OwnedLayer);
+                
                 controllerGrid.Place(controllerPlacement.Position, controller);
                 
                 controllers.Add(controller);
@@ -58,12 +64,12 @@ namespace Convolution.Orchestration
             
             Container.Resolve<ControllerRepository>().Bootup(controllers);
 
-            var game = (MiniGame)Container.Instantiate(_args.GameConfiguration.GameType);
-
-            await game.Bootup();
-            game.Display.Show();
+            var game = (MiniGame)_miniGameContainer.Instantiate(_args.GameConfiguration.GameType);
+            _miniGameContainer.BindInterfacesAndSelfTo(game.GetType()).FromInstance(game).AsSingle();
             
-            Container.Resolve<GameplayLoop>().Bootup(game);
+            await game.Bootup();
+            
+            Container.Resolve<GameplayLoop>().Bootup(game, _miniGameContainer.Resolve<MiniGameKernel>());
         }
 
         private void OnDestroy() => _args.Reset();

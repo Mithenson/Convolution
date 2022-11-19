@@ -1,7 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
 using Convolution.Controllers;
+using Sirenix.OdinInspector;
 using UnityEngine;
+using Zenject;
 
 namespace Convolution.MiniGames.Source
 {
@@ -9,10 +11,11 @@ namespace Convolution.MiniGames.Source
 	{
 		public abstract Type GameType { get; }
 		public abstract IReadOnlyList<ControllerPlacement> ControllerPlacements { get; }
+
+		public abstract void BindDependencies(DiContainer container);
 	}
 	
-	public abstract class MiniGameConfiguration<TInputChannel, TGame> : MiniGameConfiguration
-		where TInputChannel : Enum
+	public abstract class MiniGameConfiguration<TGame> : MiniGameConfiguration
 		where TGame : MiniGame
 	{
 		[SerializeField]
