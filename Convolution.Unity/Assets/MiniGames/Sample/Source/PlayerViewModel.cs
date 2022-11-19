@@ -6,7 +6,6 @@ namespace Convolution.MiniGames.Sample
 	public sealed class PlayerViewModel : ViewModel<PlayerModel>
 	{
 		private int _health;
-
 		public int Health
 		{
 			get => _health;

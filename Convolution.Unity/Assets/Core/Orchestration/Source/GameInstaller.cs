@@ -71,7 +71,5 @@ namespace Convolution.Orchestration
             
             Container.Resolve<GameplayLoop>().Bootup(game, _miniGameContainer.Resolve<MiniGameKernel>());
         }
-
-        private void OnDestroy() => _args.Reset();
     }
 }

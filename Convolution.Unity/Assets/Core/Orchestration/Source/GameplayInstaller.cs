@@ -11,6 +11,8 @@ namespace Convolution.Orchestration
 			Container.Bind(typeof(GameplayLoop), typeof(ITickable)).To<GameplayLoop>().AsSingle();
 			
 			GameplayInputsInstaller.Install(Container);
+
+			Container.BindInterfacesAndSelfTo<GameplayEndMenuViewModel>().AsSingle();
 		}
 	}
 }

@@ -1,7 +1,6 @@
 using System;
 using Convolution.Interaction;
 using Convolution.MiniGames.Source;
-using UnityEngine;
 using Zenject;
 
 namespace Convolution.Gameplay
@@ -42,14 +41,11 @@ namespace Convolution.Gameplay
             _interactionService.Tick();
             _controllerInputBridgeService.Tick(_miniGame);
 
-            var miniGameState = _miniGame.Tick();
+            _model.MiniGameState = _miniGame.Tick();
             _miniGameKernel.Tick();
             
-            if (miniGameState == MiniGameState.Won || miniGameState == MiniGameState.Failed)
-            {
-                Debug.Log($"Game over: {miniGameState}");
+            if (_model.MiniGameState == MiniGameState.Won || _model.MiniGameState == MiniGameState.Failed)
                 _model.State = GameplayState.Done;
-            }
         }
         
         void IFixedTickable.FixedTick() => _miniGameKernel.FixedTick();

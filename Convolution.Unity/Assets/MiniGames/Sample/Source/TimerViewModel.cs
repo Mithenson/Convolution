@@ -7,7 +7,6 @@ namespace Convolution.MiniGames.Sample
 	public sealed class TimerViewModel : ViewModel<TimerModel>, ITickable
 	{
 		private string _remainingTimeText;
-
 		public string RemainingTimeText
 		{
 			get => _remainingTimeText;

@@ -8,9 +8,6 @@ namespace Convolution.Orchestration
 	{
 		[SerializeField]
 		private MiniGameConfiguration _gameConfiguration;
-        
-		[SerializeField]
-		private SceneReference _gameSceneReference;
 
 		public override async void Initialize()
 		{
@@ -18,8 +15,9 @@ namespace Convolution.Orchestration
             
 			var gameArgs = Container.Resolve<GameArgs>();
 			gameArgs.GameConfiguration = _gameConfiguration;
-            
-			await _gameSceneReference.LoadSceneAsync(LoadSceneMode.Additive).Task;
+
+			var gameSceneReference = Container.ResolveId<SceneReference>(SceneType.Game);
+			await gameSceneReference.LoadSceneAsync(LoadSceneMode.Additive).Task;
 		}
 	}
 }
