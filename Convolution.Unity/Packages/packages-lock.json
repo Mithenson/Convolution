@@ -1,5 +1,22 @@
 {
   "dependencies": {
+    "com.convolution.devkit": {
+      "version": "file:DevKit",
+      "depth": 0,
+      "source": "embedded",
+      "dependencies": {
+        "com.frogmit.maxim": "1.0.0"
+      }
+    },
+    "com.frogmit.maxim": {
+      "version": "file:Maxim",
+      "depth": 0,
+      "source": "embedded",
+      "dependencies": {
+        "com.unity.inputsystem": "1.0.0",
+        "com.unity.addressables": "1.18.19"
+      }
+    },
     "com.unity.2d.sprite": {
       "version": "1.0.0",
       "depth": 0,

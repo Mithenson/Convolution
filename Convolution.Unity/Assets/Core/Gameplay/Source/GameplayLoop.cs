@@ -1,6 +1,6 @@
 using System;
+using Convolution.DevKit.MiniGames;
 using Convolution.Interaction;
-using Convolution.MiniGames.Source;
 using Zenject;
 
 namespace Convolution.Gameplay

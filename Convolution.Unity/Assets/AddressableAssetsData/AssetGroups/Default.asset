@@ -17,10 +17,6 @@ MonoBehaviour:
     m_SerializedData: []
   m_GUID: 97c816c8ab58daf4696af9dd9f30a636
   m_SerializeEntries:
-  - m_GUID: 649bd6b04a6c4ab49a6918e12b34c6d4
-    m_Address: CursorConfiguration
-    m_ReadOnly: 0
-    m_SerializedLabels: []
   - m_GUID: a6636317ba71b5e4e8dac598f5ad04b8
     m_Address: GameplayInputsConfiguration
     m_ReadOnly: 0
@@ -31,10 +27,6 @@ MonoBehaviour:
     m_SerializedLabels: []
   - m_GUID: 76e1b026f5fe78543b0332eed8228398
     m_Address: QuickPlay
-    m_ReadOnly: 0
-    m_SerializedLabels: []
-  - m_GUID: 8514f88200826524c8607112a633b694
-    m_Address: GridConfiguration
     m_ReadOnly: 0
     m_SerializedLabels: []
   m_ReadOnly: 0

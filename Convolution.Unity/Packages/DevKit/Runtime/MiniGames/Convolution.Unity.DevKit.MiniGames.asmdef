@@ -1,0 +1,19 @@
+{
+    "name": "Convolution.Unity.DevKit.MiniGames",
+    "rootNamespace": "Convolution",
+    "references": [
+        "Convolution.Unity.DevKit.Controllers",
+        "Zenject",
+        "Maxim.Unity.Common",
+        "Convolution.Unity.DevKit.Common"
+    ],
+    "includePlatforms": [],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
+}

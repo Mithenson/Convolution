@@ -1,0 +1,19 @@
+{
+    "name": "Convolution.Unity.DevKit.Controllers.Editor",
+    "rootNamespace": "Convolution",
+    "references": [
+        "Convolution.Unity.DevKit.Controllers",
+        "Convolution.Unity.DevKit.MiniGames"
+    ],
+    "includePlatforms": [
+        "Editor"
+    ],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
+}

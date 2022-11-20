@@ -1,0 +1,17 @@
+{
+    "name": "Convolution.Unity.DevKit.Controllers",
+    "rootNamespace": "Convolution",
+    "references": [
+        "Convolution.Unity.DevKit.Interaction",
+        "Convolution.Unity.DevKit.Placement"
+    ],
+    "includePlatforms": [],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
+}

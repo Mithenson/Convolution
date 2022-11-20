@@ -168,13 +168,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _inputs: {fileID: -944628639613478452, guid: 1a17d8ad3a68ec5478a831c2a70310c8, type: 3}
-  _gameConfiguration: {fileID: 11400000, guid: d7b1bf93bdc12174ea7c3cf3160b2996, type: 2}
   _gameSceneReference:
     _reference:
       m_AssetGUID: 9fc0d4010bbf28b4594072e72b8655ab
       m_SubObjectName: 
       m_SubObjectType: 
       m_EditorAssetChanged: 0
+  _gameConfiguration: {fileID: 11400000, guid: d7b1bf93bdc12174ea7c3cf3160b2996, type: 2}
 --- !u!114 &1253985711
 MonoBehaviour:
   m_ObjectHideFlags: 0

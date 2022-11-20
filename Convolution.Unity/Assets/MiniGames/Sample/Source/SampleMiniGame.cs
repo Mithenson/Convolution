@@ -1,7 +1,8 @@
 using System.Collections.Generic;
 using System.Threading.Tasks;
-using Convolution.Controllers;
-using Convolution.MiniGames.Source;
+using Convolution.DevKit.Common;
+using Convolution.DevKit.Controllers;
+using Convolution.DevKit.MiniGames;
 using Maxim.Common.Extensions;
 using UnityEngine;
 using Zenject;

@@ -1,0 +1,21 @@
+{
+  "name": "com.convolution.devkit",
+  "version": "1.0.0",
+  "displayName": "Convolution.Unity.DevKit",
+  "description": "Development kit for modding Convolution.",
+  "unity": "2020.3",
+  "keywords": [
+    "Convolution",
+    "DevKit",
+    "Mod",
+    "Modding"
+  ],
+  "author": {
+    "name": "Frogmit",
+    "email": "frogmithenson@gmail.com"
+  },
+  "unityRelease": "20f1",
+  "dependencies": {
+    "com.frogmit.maxim": "1.0.0"
+  }
+}

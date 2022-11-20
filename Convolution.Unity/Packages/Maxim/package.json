@@ -1,0 +1,21 @@
+{
+  "name": "com.frogmit.maxim",
+  "version": "1.0.0",
+  "displayName": "Maxim",
+  "description": "Library for fast development.",
+  "unity": "2020.3",
+  "keywords": [
+    "Maxim",
+    "Library",
+    "Fast development"
+  ],
+  "author": {
+    "name": "Frogmit",
+    "email": "frogmithenson@gmail.com"
+  },
+  "unityRelease": "20f1",
+  "dependencies": {
+    "com.unity.inputsystem": "1.0.0",
+    "com.unity.addressables": "1.18.19"
+  }
+}

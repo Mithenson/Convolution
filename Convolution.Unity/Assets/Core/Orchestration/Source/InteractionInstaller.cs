@@ -1,4 +1,5 @@
-﻿using Convolution.Interaction;
+﻿using Convolution.DevKit.Interaction;
+using Convolution.Interaction;
 using Maxim.AssetManagement.Configurations;
 using Zenject;
 

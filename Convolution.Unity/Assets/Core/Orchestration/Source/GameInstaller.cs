@@ -1,8 +1,9 @@
 using System.Collections.Generic;
 using System.Linq;
-using Convolution.Controllers;
+using Convolution.DevKit.Common;
+using Convolution.DevKit.Controllers;
+using Convolution.DevKit.MiniGames;
 using Convolution.Gameplay;
-using Convolution.MiniGames.Source;
 using Maxim.Common.Extensions;
 using Sirenix.OdinInspector;
 using UnityEngine;

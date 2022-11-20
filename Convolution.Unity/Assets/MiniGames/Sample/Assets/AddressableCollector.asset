@@ -12,6 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9be5c55ff7bf4348b9aa6f7da27d7bb1, type: 3}
   m_Name: AddressableCollector
   m_EditorClassIdentifier: 
+  _useDefaultGroup: 0
   _group: {fileID: 11400000, guid: a82f426ded455ad469c0e9b634c41af9, type: 2}
   _namingStrategy:
     id: 0

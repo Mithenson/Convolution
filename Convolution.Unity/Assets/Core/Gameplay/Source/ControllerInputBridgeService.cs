@@ -1,5 +1,5 @@
-﻿using Convolution.Controllers;
-using Convolution.MiniGames.Source;
+﻿using Convolution.DevKit.Controllers;
+using Convolution.DevKit.MiniGames;
 
 namespace Convolution.Interaction
 {

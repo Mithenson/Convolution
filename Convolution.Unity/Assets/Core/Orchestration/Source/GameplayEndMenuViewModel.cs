@@ -1,5 +1,5 @@
-﻿using Convolution.Gameplay;
-using Convolution.MiniGames.Source;
+﻿using Convolution.DevKit.MiniGames;
+using Convolution.Gameplay;
 using Maxim.Common.Extensions;
 using Maxim.MVVM;
 

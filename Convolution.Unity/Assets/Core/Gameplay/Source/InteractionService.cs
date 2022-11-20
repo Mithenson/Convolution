@@ -1,10 +1,11 @@
 using System;
-using Convolution.Controllers;
+using Convolution.DevKit.Controllers;
+using Convolution.Gameplay;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using Zenject;
 
-using Cursor = Convolution.Interaction.Cursor;
+using Cursor = Convolution.DevKit.Interaction.Cursor;
 
 namespace Convolution.Interaction
 {

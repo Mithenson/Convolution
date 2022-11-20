@@ -1,4 +1,4 @@
-﻿using Convolution.MiniGames.Source;
+﻿using Convolution.DevKit.MiniGames;
 using UnityEngine;
 using Zenject;
 

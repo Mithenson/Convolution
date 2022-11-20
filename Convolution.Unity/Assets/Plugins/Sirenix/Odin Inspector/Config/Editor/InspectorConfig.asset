@@ -16,4 +16,6 @@ MonoBehaviour:
   defaultEditorBehaviour: 11
   processMouseMoveInInspector: 1
   drawingConfig:
-    configs: []
+    configs:
+    - DrawnTypeName: Convolution.MiniGames.Sample.SampleMiniGameConfiguration, Convolution.Unity.MiniGames.Sample
+      EditorTypeName: Sirenix.OdinInspector.Editor.OdinEditor, Sirenix.OdinInspector.Editor

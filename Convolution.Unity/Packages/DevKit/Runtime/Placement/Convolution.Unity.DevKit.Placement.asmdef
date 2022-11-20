@@ -1,0 +1,16 @@
+{
+    "name": "Convolution.Unity.DevKit.Placement",
+    "rootNamespace": "Convolution",
+    "references": [
+        "Maxim.Unity.AssetManagement"
+    ],
+    "includePlatforms": [],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
+}
