@@ -1,6 +1,5 @@
 using System.Collections.Generic;
 using System.Linq;
-using Sirenix.Utilities;
 using UnityEditor;
 using UnityEditor.AddressableAssets;
 using UnityEngine;
@@ -19,7 +18,9 @@ namespace Maxim.AssetManagement.Editor
 		[InitializeOnLoadMethod]
 		private static void Initialize()
 		{
-			CollectorPaths.AddRange(AssetDatabase.FindAssets(FilterForCollectorSearch).Select(AssetDatabase.GUIDToAssetPath));
+			foreach (var collectorPath in AssetDatabase.FindAssets(FilterForCollectorSearch).Select(AssetDatabase.GUIDToAssetPath))
+				CollectorPaths.Add(collectorPath);
+			
 			EditorApplication.update += Tick;
 		}
 

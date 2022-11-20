@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Linq;
-using Sirenix.OdinInspector;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -11,15 +10,18 @@ namespace Maxim.Inputs
 	{
 		[SerializeField]
 		private InputActionAsset _asset;
-
-		#if UNITY_EDITOR
-		[ShowIf(nameof(HasAsset))]
-		[CustomValueDrawer(nameof(DrawGuid))]
-		#endif
+		
 		[SerializeField]
 		private string _id;
 
 		private Guid? _lazyId;
+		
+		#if UNITY_EDITOR
+
+		public static string AssetFieldName => nameof(_asset);
+		public static string IdFieldName => nameof(_id);
+		
+		#endif
 
 		public Guid Id
 		{
