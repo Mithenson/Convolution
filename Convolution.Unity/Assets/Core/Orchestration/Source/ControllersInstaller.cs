@@ -4,11 +4,16 @@ using Zenject;
 
 namespace Convolution.Orchestration
 {
-	public sealed class ControllersInstaller : Installer<ControllerGrid, ControllersInstaller>
+	public sealed class ControllersInstaller : Installer<ControllerGrid, BuiltInControllerPrefabRepository, ControllersInstaller>
 	{
 		private readonly ControllerGrid _controllerGrid;
+		private readonly BuiltInControllerPrefabRepository _builtInControllerPrefabRepository;
 		
-		public ControllersInstaller(ControllerGrid controllerGrid) => _controllerGrid = controllerGrid;
+		public ControllersInstaller(ControllerGrid controllerGrid, BuiltInControllerPrefabRepository builtInControllerPrefabRepository)
+		{
+			_controllerGrid = controllerGrid;
+			_builtInControllerPrefabRepository = builtInControllerPrefabRepository;
+		}
 
 		public override void InstallBindings()
 		{
@@ -16,6 +21,9 @@ namespace Convolution.Orchestration
 			Container.Bind<ControllerInputBridgeService>().ToSelf().AsSingle();
 			
 			Container.Bind<ControllerGrid>().ToSelf().FromInstance(_controllerGrid).AsSingle();
+			
+			_builtInControllerPrefabRepository.Bootup();
+			Container.Bind<BuiltInControllerPrefabRepository>().ToSelf().FromInstance(_builtInControllerPrefabRepository).AsSingle();
 		}
 	}
 }

@@ -14,9 +14,24 @@ namespace Convolution.DevKit.Controllers.Editor
             
             rect.height = (EditorGUIUtility.singleLineHeight);
             
-            var prefabProperty = iterator.FindPropertyRelative(ControllerPlacement.PrefabFieldName);
-            EditorGUI.PropertyField(rect, prefabProperty);
+            var chosenSelectionModeProperty = iterator.FindPropertyRelative(ControllerPlacement.ChosenSelectionModeFieldName);
+            EditorGUI.PropertyField(rect, chosenSelectionModeProperty);
+            
+            rect.y = rect.yMax + EditorGUIUtility.standardVerticalSpacing;
 
+            switch ((ControllerPlacement.SelectionMode)chosenSelectionModeProperty.intValue)
+            {
+                case ControllerPlacement.SelectionMode.BuiltIn:
+                    var pickedBuiltInTypeProperty = iterator.FindPropertyRelative(ControllerPlacement.PickedBuiltInTypeFieldName);
+                    EditorGUI.PropertyField(rect, pickedBuiltInTypeProperty);
+                    break;
+
+                case ControllerPlacement.SelectionMode.Custom:
+                    var pickedPrefabProperty = iterator.FindPropertyRelative(ControllerPlacement.PickedPrefabFieldName);
+                    EditorGUI.PropertyField(rect, pickedPrefabProperty);
+                    break;
+            }
+            
             rect.y = rect.yMax + EditorGUIUtility.standardVerticalSpacing;
             
             var positionProperty = iterator.FindPropertyRelative(ControllerPlacement.PositionFieldName);
@@ -43,6 +58,6 @@ namespace Convolution.DevKit.Controllers.Editor
             EditorGUI.EndProperty();
         }
 
-        public override float GetPropertyHeight(SerializedProperty iterator, GUIContent label) => EditorGUIUtility.singleLineHeight * 3.0f + EditorGUIUtility.standardVerticalSpacing * 2.0f;
+        public override float GetPropertyHeight(SerializedProperty iterator, GUIContent label) => EditorGUIUtility.singleLineHeight * 4.0f + EditorGUIUtility.standardVerticalSpacing * 3.0f;
     }
 }

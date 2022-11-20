@@ -1,9 +1,11 @@
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using Convolution.DevKit.Common;
 using Convolution.DevKit.Controllers;
 using Convolution.DevKit.MiniGames;
 using Convolution.Gameplay;
+using Convolution.Interaction;
 using Maxim.Common.Extensions;
 using Sirenix.OdinInspector;
 using UnityEngine;
@@ -24,6 +26,10 @@ namespace Convolution.Orchestration
         [SerializeField]
         [FoldoutGroup("Controllers")]
         private ControllerGrid _controllerGrid;
+        
+        [SerializeField]
+        [FoldoutGroup("Controllers")]
+        private BuiltInControllerPrefabRepository _builtInControllerPrefabRepository;
 
         private GameArgs _args;
         private DiContainer _miniGameContainer;
@@ -33,7 +39,7 @@ namespace Convolution.Orchestration
             _args = Container.ParentContainers.First().Resolve<GameArgs>();
             
             PlacementInstaller.Install(Container);
-            ControllersInstaller.Install(Container, _controllerGrid);
+            ControllersInstaller.Install(Container, _controllerGrid, _builtInControllerPrefabRepository);
             InteractionInstaller.Install(Container);
             MiniGameDisplayInstaller.Install(Container, _miniGameDisplaySceneRepository, _miniGameRenderer);
             GameplayInstaller.Install(Container);
@@ -50,10 +56,23 @@ namespace Convolution.Orchestration
         {
             var controllers = new List<Controller>();
             var controllerGrid = Container.Resolve<ControllerGrid>();
-            
+
+            var builtInControllerPrefabRepository = Container.Resolve<BuiltInControllerPrefabRepository>();
             foreach (var controllerPlacement in _args.GameConfiguration.ControllerPlacements)
             {
-                var controller = Container.InstantiatePrefabForComponent<Controller>(controllerPlacement.Prefab);
+                var prefab = default(Controller);
+                switch (controllerPlacement.ChosenSelectionMode)
+                {
+                    case ControllerPlacement.SelectionMode.BuiltIn:
+                        prefab = builtInControllerPrefabRepository[controllerPlacement.PickedBuiltInType];
+                        break;
+
+                    case ControllerPlacement.SelectionMode.Custom:
+                        prefab = controllerPlacement.PickedPrefab;
+                        break;
+                }
+                
+                var controller = Container.InstantiatePrefabForComponent<Controller>(prefab);
                 
                 controller.InputChannel = controllerPlacement.InputChannel;
                 controller.gameObject.SetLayer(Constants.OwnedLayer);

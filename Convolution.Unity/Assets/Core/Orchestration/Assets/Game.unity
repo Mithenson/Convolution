@@ -256,6 +256,7 @@ MonoBehaviour:
   _miniGameDisplaySceneRepository: {fileID: 511854827}
   _miniGameRenderer: {fileID: 1069745944}
   _controllerGrid: {fileID: 1641255020}
+  _builtInControllerPrefabRepository: {fileID: 11400000, guid: 9cc2cb16ef39ab64bb9284d7532f2d45, type: 2}
 --- !u!114 &215339357
 MonoBehaviour:
   m_ObjectHideFlags: 0
