@@ -174,7 +174,9 @@ MonoBehaviour:
       m_SubObjectName: 
       m_SubObjectType: 
       m_EditorAssetChanged: 0
+  _loadMode: 1
   _gameConfiguration: {fileID: 11400000, guid: d7b1bf93bdc12174ea7c3cf3160b2996, type: 2}
+  _modFolder: C:/Users/Robert/AppData/LocalLow/Convolution/Convolution_Unity/Mods/Mod
 --- !u!114 &1253985711
 MonoBehaviour:
   m_ObjectHideFlags: 0

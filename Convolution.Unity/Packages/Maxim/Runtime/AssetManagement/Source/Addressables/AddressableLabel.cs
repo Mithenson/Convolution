@@ -7,5 +7,7 @@ namespace Maxim.AssetManagement.Addressables
 	{
 		[SerializeField]
 		private string _name;
+
+		public string Name => _name;
 	}
 }

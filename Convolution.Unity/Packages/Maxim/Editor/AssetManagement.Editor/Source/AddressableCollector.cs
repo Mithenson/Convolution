@@ -41,7 +41,7 @@ namespace Maxim.AssetManagement.Editor
 			
 			entry.labels.Clear();
 			foreach (var label in _labels)
-				entry.SetLabel(label.name, true, true);
+				entry.SetLabel(label.Name, true, true);
 		}
 	}
 }
