@@ -14,9 +14,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _tag:
     id: 0
-  _assemblyNames:
-  - Convolution.Orchestration.BootstrapInstaller, Convolution.Unity.Orchestration,
-    Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+  _assemblyReferences:
+  - _firstTypeAssemblyQualifiedName: Convolution.Orchestration.BootstrapInstaller,
+      Convolution.Unity.Orchestration, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
   references:
     version: 1
     00000000:
