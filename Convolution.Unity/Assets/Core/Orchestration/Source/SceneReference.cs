@@ -23,12 +23,8 @@ namespace Convolution.Orchestration
 			return _reference.LoadSceneAsync(loadMode, activateOnLoad, priority);
 		}
 
-		public AsyncOperationHandle<SceneInstance> UnloadScene()
-		{
-			var operationHandle = _reference.UnLoadScene();
-			_reference.ReleaseAsset();
-
-			return operationHandle;
-		}
+		public AsyncOperationHandle<SceneInstance> UnloadScene() => _reference.UnLoadScene();
+		
+		public void Reset() => _reference.ReleaseAsset();
 	}
 }

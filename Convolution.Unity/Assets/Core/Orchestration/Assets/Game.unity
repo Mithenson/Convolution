@@ -869,7 +869,7 @@ Camera:
     serializedVersion: 2
     m_Bits: 55
   m_RenderingPath: -1
-  m_TargetTexture: {fileID: 8400000, guid: d90aedab3128e964399cf537101a436b, type: 2}
+  m_TargetTexture: {fileID: 0}
   m_TargetDisplay: 0
   m_TargetEye: 3
   m_HDR: 1
@@ -1581,6 +1581,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _canvas: {fileID: 1535533113}
   _render: {fileID: 8400000, guid: d90aedab3128e964399cf537101a436b, type: 2}
+  _camera: {fileID: 1275801051}
 --- !u!1 &1869143850
 GameObject:
   m_ObjectHideFlags: 0

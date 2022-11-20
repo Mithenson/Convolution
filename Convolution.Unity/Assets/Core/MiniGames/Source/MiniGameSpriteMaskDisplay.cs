@@ -11,6 +11,9 @@ namespace Convolution.MiniGames.Source
 		
 		[SerializeField]
 		private RenderTexture _render;
+
+		[SerializeField]
+		private Camera _camera;
 		
 		private SpriteMask _mask;
 		private MiniGameRenderer _renderer;
@@ -22,6 +25,7 @@ namespace Convolution.MiniGames.Source
 
 		public void Bootup()
 		{
+			_camera.targetTexture = _render;
 			_renderer.Set(_render);
 			
 			gameObject.SetActive(true);

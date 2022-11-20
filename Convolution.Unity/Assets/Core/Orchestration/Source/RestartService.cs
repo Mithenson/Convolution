@@ -1,4 +1,6 @@
 ﻿using System.Threading.Tasks;
+using Convolution.MiniGames.Source;
+using UnityEngine;
 using UnityEngine.SceneManagement;
 using Zenject;
 
@@ -12,7 +14,9 @@ namespace Convolution.Orchestration
 
 		public async Task Restart()
 		{
-			_gameSceneReference.UnloadScene();
+			await _gameSceneReference.UnloadScene().Task;
+			_gameSceneReference.Reset();
+			
 			await _gameSceneReference.LoadSceneAsync(LoadSceneMode.Additive).Task;
 		}
 	}
