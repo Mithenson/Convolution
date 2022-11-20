@@ -1,0 +1,24 @@
+{
+    "name": "Modder.Mod",
+    "rootNamespace": "Modder",
+    "references": [
+        "Convolution.Unity.DevKit.Common",
+        "Convolution.Unity.DevKit.Controllers",
+        "Convolution.Unity.DevKit.Interaction",
+        "Convolution.Unity.DevKit.MiniGames",
+        "Convolution.Unity.DevKit.Placement",
+        "Maxim.Unity.AssetManagement",
+        "Maxim.Unity.Common",
+        "Maxim.Unity.Inputs",
+        "Zenject"
+    ],
+    "includePlatforms": [],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
+}

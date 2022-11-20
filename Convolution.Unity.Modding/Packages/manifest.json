@@ -1,5 +1,6 @@
 {
   "dependencies": {
+    "com.convolution.devkit": "https://github.com/Mithenson/Convolution.DevKit.git",
     "com.frogmit.maxim": "https://github.com/Mithenson/Maxim.git",
     "com.unity.collab-proxy": "1.11.2",
     "com.unity.ide.rider": "2.0.7",

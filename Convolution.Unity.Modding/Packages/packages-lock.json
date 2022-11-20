@@ -1,5 +1,14 @@
 {
   "dependencies": {
+    "com.convolution.devkit": {
+      "version": "https://github.com/Mithenson/Convolution.DevKit.git",
+      "depth": 0,
+      "source": "git",
+      "dependencies": {
+        "com.frogmit.maxim": "1.0.0"
+      },
+      "hash": "2b9c746cefb5a53c35e21621e30af2cbdac369a8"
+    },
     "com.frogmit.maxim": {
       "version": "https://github.com/Mithenson/Maxim.git",
       "depth": 0,
@@ -8,7 +17,7 @@
         "com.unity.inputsystem": "1.0.0",
         "com.unity.addressables": "1.18.19"
       },
-      "hash": "d696b221458698b268a9e82aa9149c076f1b3369"
+      "hash": "5f191e57725936d420afd3f91fbbcc3d2bdf5129"
     },
     "com.unity.addressables": {
       "version": "1.18.19",
