@@ -21,7 +21,7 @@ MonoBehaviour:
     m_Address: ModGameConfiguration
     m_ReadOnly: 0
     m_SerializedLabels:
-    - AddressableLabel
+    - Configuration
   m_ReadOnly: 0
   m_Settings: {fileID: 11400000, guid: dbfd8b0aba29e5146a16a1882b3b5953, type: 2}
   m_SchemaSet:

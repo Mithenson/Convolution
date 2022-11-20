@@ -79,7 +79,7 @@ MonoBehaviour:
   m_LabelTable:
     m_LabelNames:
     - default
-    - AddressableLabel
+    - Configuration
   m_SchemaTemplates: []
   m_GroupTemplateObjects:
   - {fileID: 11400000, guid: b2c81027cd1de4a49848c420213daab1, type: 2}
