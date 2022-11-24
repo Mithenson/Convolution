@@ -24,7 +24,8 @@ namespace Modder.Mod
 
         public override Task Bootup()
         {
-            _player = _factory.Instantiate(_player, _display.transform);
+            //
+            _player = _factory.Instantiate(_configuration.PlayerPrefab, _display.transform);
             _player.transform.localPosition = Vector2.zero;
             
             _display.Bootup();

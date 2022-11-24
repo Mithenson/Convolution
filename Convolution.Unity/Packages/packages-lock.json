@@ -5,10 +5,10 @@
       "depth": 0,
       "source": "embedded",
       "dependencies": {
-        "com.frogmit.maxim": "1.0.0"
+        "com.mithenson.maxim": "1.0.0"
       }
     },
-    "com.frogmit.maxim": {
+    "com.mithenson.maxim": {
       "version": "file:Maxim",
       "depth": 0,
       "source": "embedded",

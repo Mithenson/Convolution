@@ -1,7 +1,7 @@
 {
   "name": "com.convolution.devkit",
   "version": "1.0.0",
-  "displayName": "Convolution.Unity.DevKit",
+  "displayName": "Convolution.DevKit",
   "description": "Development kit for modding Convolution.",
   "unity": "2020.3",
   "keywords": [
@@ -16,6 +16,6 @@
   },
   "unityRelease": "20f1",
   "dependencies": {
-    "com.frogmit.maxim": "1.0.0"
+    "com.mithenson.maxim": "1.0.0"
   }
 }

@@ -1,4 +1,5 @@
-﻿using Maxim.AssetManagement.Addressables;
+﻿using System.Collections.Generic;
+using Maxim.AssetManagement.Addressables;
 using UnityEditor;
 using UnityEditor.AddressableAssets;
 using UnityEditor.AddressableAssets.Settings;
@@ -21,7 +22,12 @@ namespace Maxim.AssetManagement.Editor
 		[SerializeField]
 		private AddressableLabel[] _labels;
 
+		[SerializeField]
+		private Object[] _manualEntries;
+
 		private IAddressableNamingStrategy LazyNamingStrategy => _namingStrategy ??= new NameAddressableByFileName();
+
+		public IReadOnlyList<Object> ManualEntries => _manualEntries;
 		
 		#if UNITY_EDITOR
 
@@ -29,7 +35,8 @@ namespace Maxim.AssetManagement.Editor
 		public static string GroupFieldName => nameof(_group);
 		public static string NamingStrategyFieldName => nameof(_namingStrategy);
 		public static string LabelsFieldName => nameof(_labels);
-			
+		public static string ManualEntriesFieldName => nameof(_manualEntries);
+
 		#endif
 
 		public void CreateOrAddAddressableEntry(GUID guid)

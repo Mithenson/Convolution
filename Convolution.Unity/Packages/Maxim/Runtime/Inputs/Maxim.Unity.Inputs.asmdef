@@ -5,7 +5,8 @@
         "Maxim.Unity.Common",
         "Maxim.Unity.AssetManagement",
         "Unity.InputSystem",
-        "Zenject"
+        "Zenject",
+        "UniTask"
     ],
     "includePlatforms": [],
     "excludePlatforms": [],

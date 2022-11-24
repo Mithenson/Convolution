@@ -56,9 +56,9 @@ MonoBehaviour:
       - m_Id: 1220821d9a580f348a06b79badb93433
         m_Value: '{UnityEngine.AddressableAssets.Addressables.RuntimePath}/[BuildTarget]'
       - m_Id: 887471be8478b954b9c16163786e88fa
-        m_Value: Export
+        m_Value: C:\Users\Robert\AppData\LocalLow\Convolution\Convolution_Unity\Mods\Mod
       - m_Id: f8c68ce02904fe442a3ff8cddd40dcc9
-        m_Value: Export
+        m_Value: C:\Users\Robert\AppData\LocalLow\Convolution\Convolution_Unity\Mods\Mod
     m_ProfileEntryNames:
     - m_Id: e06a90f20898ccc47bbfd01c34fa5190
       m_Name: BuildTarget
@@ -79,7 +79,7 @@ MonoBehaviour:
   m_LabelTable:
     m_LabelNames:
     - default
-    - Configuration
+    - ModConfiguration
   m_SchemaTemplates: []
   m_GroupTemplateObjects:
   - {fileID: 11400000, guid: b2c81027cd1de4a49848c420213daab1, type: 2}

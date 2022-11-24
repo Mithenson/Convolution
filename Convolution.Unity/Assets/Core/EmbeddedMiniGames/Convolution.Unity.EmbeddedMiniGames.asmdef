@@ -1,0 +1,23 @@
+{
+    "name": "Convolution.Unity.EmbeddedMiniGames",
+    "rootNamespace": "Convolution",
+    "references": [
+        "GUID:7d7ea9fdd4c28b44b8d3c9318bf2b3a0",
+        "GUID:e761b36537be1ee4ab8718885264eab8",
+        "GUID:d733c7d83c906e044ae8afed0a5595b0",
+        "GUID:bddc0d7466f50c24f98357652ff7d5ec",
+        "GUID:9f6e6122364362f438fddd77c1ce05f8",
+        "GUID:a33276f181eec8648a25923e1a14abf5",
+        "GUID:32bdfea8680ec5c41bbc6098e8bb005c",
+        "GUID:bccf110ec9abc8045b5e1c7fe6eaa136"
+    ],
+    "includePlatforms": [],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
+}

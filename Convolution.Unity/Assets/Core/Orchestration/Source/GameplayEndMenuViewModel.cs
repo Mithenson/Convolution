@@ -1,5 +1,6 @@
 ﻿using Convolution.DevKit.MiniGames;
 using Convolution.Gameplay;
+using Cysharp.Threading.Tasks;
 using Maxim.Common.Extensions;
 using Maxim.MVVM;
 
@@ -22,12 +23,12 @@ namespace Convolution.Orchestration
 		}
 
 		private readonly GameplayModel _model;
-		private readonly RestartService _restartService;
+		private readonly GameContext _gameContext;
 		
-		public GameplayEndMenuViewModel(GameplayModel model, RestartService restartService)
+		public GameplayEndMenuViewModel(GameplayModel model, GameContext gameContext)
 		{
 			_model = model;
-			_restartService = restartService;
+			_gameContext = gameContext;
 
 			AddMethodBinding(model, nameof(GameplayModel.State), nameof(OnGameplayStateChanged));
 		}
@@ -52,6 +53,7 @@ namespace Convolution.Orchestration
 			}
 		}
 
-		public void Restart() => _restartService.Restart().FireAndForget();
+		public void Restart() => _gameContext.Restart().Forget();
+		public void Leave() => _gameContext.Leave().Forget();
 	}
 }

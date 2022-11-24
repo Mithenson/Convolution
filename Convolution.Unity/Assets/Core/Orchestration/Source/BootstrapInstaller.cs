@@ -1,27 +1,42 @@
-﻿using Maxim.Inputs;
+﻿using Cysharp.Threading.Tasks;
+using Maxim.AssetManagement.Addressables;
+using Maxim.Inputs;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.SceneManagement;
 using Zenject;
 
 namespace Convolution.Orchestration
 {
-	public class BootstrapInstaller : MonoInstaller
+	public class BootstrapInstaller : MonoInstaller, IInitializableInstaller
 	{
 		[SerializeField]
 		private InputActionAsset _inputs;
+
+		[SerializeField]
+		private AddressableLabel _embeddedMiniGameConfigurationLabel;
+
+		[SerializeField]
+		private SceneReference _menuSceneReference;
 		
 		[SerializeField]
 		private SceneReference _gameSceneReference;
         
-		public override void InstallBindings()
+		public override async UniTask InstallBindings()
 		{
-			InputsInstaller.Install(Container, _inputs);
-			Container.Bind<GameArgs>().ToSelf().AsSingle();
+			await InputsInstaller.Install(Container, _inputs);
+			
+			Container.Bind<SceneReference>().WithId(SceneType.Menu).FromInstance(_menuSceneReference).AsCached();
+			Container.Bind<SceneReference>().WithId(SceneType.Game).FromInstance(_gameSceneReference).AsCached();
 
-			Container.Bind<SceneReference>().WithId(SceneType.Game).FromInstance(_gameSceneReference).AsSingle();
-			Container.BindInterfacesAndSelfTo<RestartService>().AsSingle();
+			await MiniGameContentInstaller.Install(Container, _embeddedMiniGameConfigurationLabel);
+			Container.Bind<GameContext>().ToSelf().AsSingle();
 		}
 
-		public virtual void Initialize() => Container.Resolve<InputsService>().Enable();
+		public virtual async UniTask Initialize()
+		{
+			Container.Resolve<InputsService>().Enable();
+			await _menuSceneReference.LoadSceneAsync(LoadSceneMode.Additive);
+		}
 	}
 }

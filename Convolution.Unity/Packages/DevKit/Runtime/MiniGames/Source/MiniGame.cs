@@ -16,7 +16,7 @@ namespace Convolution.DevKit.MiniGames
     }
     
     public abstract class MiniGame<TConfiguration, TDisplay, TInputChannel> : MiniGame 
-        where TConfiguration : MiniGameConfiguration
+        where TConfiguration : IMiniGameConfiguration
         where TDisplay : IMiniGameDisplay
         where TInputChannel : Enum
     {

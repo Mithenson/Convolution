@@ -25,10 +25,27 @@ MonoBehaviour:
     m_Address: Game
     m_ReadOnly: 0
     m_SerializedLabels: []
-  - m_GUID: 76e1b026f5fe78543b0332eed8228398
-    m_Address: QuickPlay
+  - m_GUID: 649bd6b04a6c4ab49a6918e12b34c6d4
+    m_Address: CursorConfiguration
     m_ReadOnly: 0
     m_SerializedLabels: []
+  - m_GUID: 8514f88200826524c8607112a633b694
+    m_Address: GridConfiguration
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: 92408c5422db597459ac21f50a0eba2d
+    m_Address: Menu
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: 76e1b026f5fe78543b0332eed8228398
+    m_Address: Bootstrap
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: d7b1bf93bdc12174ea7c3cf3160b2996
+    m_Address: SampleMiniGameConfiguration
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - EmbeddedMiniGame
   m_ReadOnly: 0
   m_Settings: {fileID: 11400000, guid: 2660dd06d7c1cfb4381255ed6ad68a5c, type: 2}
   m_SchemaSet:

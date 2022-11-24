@@ -1,27 +1,27 @@
 {
   "dependencies": {
     "com.convolution.devkit": {
-      "version": "https://github.com/Mithenson/Convolution.DevKit.git",
+      "version": "1.0.0",
       "depth": 0,
-      "source": "git",
+      "source": "registry",
       "dependencies": {
         "com.frogmit.maxim": "1.0.0"
       },
-      "hash": "83c8fa7d30a4eefcf1fda0504dd2164df327099c"
+      "url": "http://localhost:4873"
     },
     "com.frogmit.maxim": {
-      "version": "https://github.com/Mithenson/Maxim.git",
-      "depth": 0,
-      "source": "git",
+      "version": "1.0.0",
+      "depth": 1,
+      "source": "registry",
       "dependencies": {
         "com.unity.inputsystem": "1.0.0",
         "com.unity.addressables": "1.18.19"
       },
-      "hash": "66146f74150aed431578236f62928e4f4b4ae036"
+      "url": "http://localhost:4873"
     },
     "com.unity.addressables": {
       "version": "1.18.19",
-      "depth": 1,
+      "depth": 2,
       "source": "registry",
       "dependencies": {
         "com.unity.scriptablebuildpipeline": "1.19.2",
@@ -74,14 +74,14 @@
     },
     "com.unity.inputsystem": {
       "version": "1.0.0",
-      "depth": 1,
+      "depth": 2,
       "source": "registry",
       "dependencies": {},
       "url": "https://packages.unity.com"
     },
     "com.unity.scriptablebuildpipeline": {
       "version": "1.19.2",
-      "depth": 2,
+      "depth": 3,
       "source": "registry",
       "dependencies": {},
       "url": "https://packages.unity.com"

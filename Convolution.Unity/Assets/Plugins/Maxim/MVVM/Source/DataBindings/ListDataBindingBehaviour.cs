@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using Cysharp.Threading.Tasks;
 using Maxim.Common.Extensions;
 using Maxim.MVVM.DataBindings.Converters;
 using Maxim.MVVM.Observables;
@@ -21,8 +22,11 @@ namespace Maxim.MVVM.DataBindings
 			public BindingInstaller(object binding) => 
 				_binding = binding;
 
-			public override void InstallBindings() =>
+			public override UniTask InstallBindings()
+			{
 				Container.BindInterfacesAndSelfTo(_binding.GetType()).FromInstance(_binding).AsSingle();
+				return UniTask.CompletedTask;
+			}
 		}
 
 		#endregion
@@ -88,7 +92,7 @@ namespace Maxim.MVVM.DataBindings
 
 		private GameObject InstantiateTarget(object source)
 		{
-			var context = _container.InstantiatePrefabForComponent<GameObjectContext>(_prefab);
+			var context = _container.InstantiatePrefabForComponent<GameObjectContext>(_prefab, transform);
 			context.AddNormalInstaller(new BindingInstaller(source));
 			context.Run();
 

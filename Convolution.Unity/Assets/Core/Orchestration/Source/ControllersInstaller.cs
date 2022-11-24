@@ -1,5 +1,6 @@
 ﻿using Convolution.DevKit.Controllers;
 using Convolution.Interaction;
+using Cysharp.Threading.Tasks;
 using Zenject;
 
 namespace Convolution.Orchestration
@@ -15,7 +16,7 @@ namespace Convolution.Orchestration
 			_builtInControllerPrefabRepository = builtInControllerPrefabRepository;
 		}
 
-		public override void InstallBindings()
+		public override UniTask InstallBindings()
 		{
 			Container.Bind<ControllerRepository>().ToSelf().AsSingle();
 			Container.Bind<ControllerInputBridgeService>().ToSelf().AsSingle();
@@ -24,6 +25,8 @@ namespace Convolution.Orchestration
 			
 			_builtInControllerPrefabRepository.Bootup();
 			Container.Bind<BuiltInControllerPrefabRepository>().ToSelf().FromInstance(_builtInControllerPrefabRepository).AsSingle();
+			
+			return UniTask.CompletedTask;
 		}
 	}
 }

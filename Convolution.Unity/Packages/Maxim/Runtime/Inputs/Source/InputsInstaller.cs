@@ -1,3 +1,4 @@
+using Cysharp.Threading.Tasks;
 using UnityEngine.InputSystem;
 using Zenject;
 
@@ -11,10 +12,12 @@ namespace Maxim.Inputs
 
         public InputsInstaller(InputActionAsset asset) => _asset = asset;
 
-        public override void InstallBindings()
+        public override UniTask InstallBindings()
         {
             var instance = Object.Instantiate(_asset);
             Container.Bind<InputsService>().ToSelf().AsSingle().WithArguments(instance);
+
+            return UniTask.CompletedTask;
         }
     }
 }

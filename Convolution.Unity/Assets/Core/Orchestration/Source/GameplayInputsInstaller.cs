@@ -1,4 +1,5 @@
 ﻿using Convolution.Gameplay;
+using Cysharp.Threading.Tasks;
 using Maxim.AssetManagement.Configurations;
 using Zenject;
 
@@ -6,9 +7,9 @@ namespace Convolution.Orchestration
 {
 	public sealed class GameplayInputsInstaller : Installer<GameplayInputsInstaller>
 	{
-		public override void InstallBindings()
+		public override async UniTask InstallBindings()
 		{
-			ConfigurationInstaller<GameplayInputsConfiguration>.Install(Container);
+			await ConfigurationInstaller<GameplayInputsConfiguration>.Install(Container);
 			Container.BindInterfacesAndSelfTo<GameplayInputsRepository>().AsSingle();
 		}
 	}

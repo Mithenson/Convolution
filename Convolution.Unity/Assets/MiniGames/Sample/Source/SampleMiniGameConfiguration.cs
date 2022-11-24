@@ -1,11 +1,12 @@
-﻿using Convolution.DevKit.MiniGames;
+﻿using Convolution.Core.EmbeddedMiniGames;
+using Convolution.DevKit.MiniGames;
 using UnityEngine;
 using Zenject;
 
 namespace Convolution.MiniGames.Sample
 {
 	[CreateAssetMenu(menuName = "Convolution/MiniGames/Sample", fileName = nameof(SampleMiniGameConfiguration))]
-	public sealed class SampleMiniGameConfiguration : MiniGameConfiguration<SampleMiniGame>
+	public sealed class SampleMiniGameConfiguration : EmbeddedMiniGameConfiguration<SampleMiniGame>
 	{
 		[SerializeField]
 		private GameObject _uiPrefab;

@@ -8,7 +8,7 @@ namespace Convolution.DevKit.Placement.Editor
     [CustomEditor(typeof(Grid), true)]
     public sealed class GridEditor : UnityEditor.Editor
     {
-        private const string ConfigurationPath = "Packages/com.convolution.devkit/Runtime/Placement/Resources/GridConfiguration.asset";
+        private const string ConfigurationPath = "Packages/com.convolution.devkit/Runtime/Placement/Assets/GridConfiguration.asset";
         
         private static GridConfiguration _configuration;
         private static GridConfiguration LazyConfiguration

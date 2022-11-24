@@ -6,7 +6,15 @@ using Zenject;
 
 namespace Convolution.DevKit.MiniGames
 {
-	public abstract class MiniGameConfiguration : ScriptableObject
+	public interface IMiniGameConfiguration
+	{
+		Type GameType { get; }
+		IReadOnlyList<ControllerPlacement> ControllerPlacements { get; }
+
+		void BindDependencies(DiContainer container);
+	}
+	
+	public abstract class MiniGameConfiguration : ScriptableObject, IMiniGameConfiguration
 	{
 		public abstract Type GameType { get; }
 		public abstract IReadOnlyList<ControllerPlacement> ControllerPlacements { get; }

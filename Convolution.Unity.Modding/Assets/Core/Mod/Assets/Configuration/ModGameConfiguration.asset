@@ -13,7 +13,9 @@ MonoBehaviour:
   m_Name: ModGameConfiguration
   m_EditorClassIdentifier: 
   _controllerPlacements:
-  - _prefab: {fileID: 0}
+  - _chosenSelectionMode: 1
+    _pickedBuiltInType: 0
+    _pickedPrefab: {fileID: 5218327021905657013, guid: 33ab0a99af99ce746ad2dee3a0b58b24, type: 3}
     _position: {x: 0, y: 0}
     _inputChannel: 0
   _playerPrefab: {fileID: 8623845660935078276, guid: 2c501300aeb6ef944b0eaba85459320c, type: 3}

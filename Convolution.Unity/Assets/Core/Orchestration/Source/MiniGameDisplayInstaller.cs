@@ -1,4 +1,5 @@
 ﻿using Convolution.DevKit.MiniGames;
+using Cysharp.Threading.Tasks;
 using Zenject;
 
 namespace Convolution.Orchestration
@@ -14,7 +15,7 @@ namespace Convolution.Orchestration
 			_renderer = renderer;
 		}
 
-		public override void InstallBindings()
+		public override UniTask InstallBindings()
 		{
 			var displays = _displaySceneRepository.Displays;
 			foreach (var display in displays)
@@ -27,6 +28,7 @@ namespace Convolution.Orchestration
 			Container.Bind<MiniGameRenderTextureDisplay>().ToSelf().AsSingle();
 
 			Container.Bind<MiniGameRenderer>().FromInstance(_renderer);
+			return UniTask.CompletedTask;
 		}
 	}
 }

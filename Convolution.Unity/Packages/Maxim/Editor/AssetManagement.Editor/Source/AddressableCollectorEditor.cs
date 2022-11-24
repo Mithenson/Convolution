@@ -54,6 +54,9 @@ namespace Maxim.AssetManagement.Editor
 			
 			var labelsProperty = serializedObject.FindProperty(AddressableCollector.LabelsFieldName);
 			EditorGUILayout.PropertyField(labelsProperty);
+			
+			var manuelEntriesProperty = serializedObject.FindProperty(AddressableCollector.ManualEntriesFieldName);
+			EditorGUILayout.PropertyField(manuelEntriesProperty);
 
 			serializedObject.ApplyModifiedProperties();
 		}

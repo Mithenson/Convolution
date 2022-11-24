@@ -13,12 +13,18 @@ MonoBehaviour:
   m_Name: SampleMiniGameConfiguration
   m_EditorClassIdentifier: 
   _controllerPlacements:
-  - _prefab: {fileID: 309803448578852135, guid: f707410c02ca06640bffd8ed59541e7a, type: 3}
+  - _chosenSelectionMode: 1
+    _pickedBuiltInType: 0
+    _pickedPrefab: {fileID: 309803448578852135, guid: f707410c02ca06640bffd8ed59541e7a, type: 3}
     _position: {x: 0, y: 0}
     _inputChannel: 1
-  - _prefab: {fileID: 309803448578852135, guid: 7e40fc356c397b043bd21d86e6dbacd8, type: 3}
+  - _chosenSelectionMode: 1
+    _pickedBuiltInType: 0
+    _pickedPrefab: {fileID: 309803448578852135, guid: 7e40fc356c397b043bd21d86e6dbacd8, type: 3}
     _position: {x: 7, y: 0}
     _inputChannel: 2
+  _definition:
+    _name: Sample
   _uiPrefab: {fileID: 6643350676895803406, guid: 5aa968675ff93fb48adcacfd6e2984e9, type: 3}
   _playerPrefab: {fileID: 469824979635184142, guid: 4b9b169c0ebe7874e94228f6d7c05fe1, type: 3}
   _bulletPrefab: {fileID: 2133259551710054377, guid: bc8f7f5f88be5524dbbe4144772a6743, type: 3}

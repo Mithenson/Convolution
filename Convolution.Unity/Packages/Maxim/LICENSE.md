@@ -1,6 +1,6 @@
 MIT License
 
-Copyright (c) [2022] [Frogmit]
+Copyright (c) [2022] [Mithenson]
 
 Permission is hereby granted, free of charge, to any person obtaining a copy of this package, to deal in the package without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the package's content, and to permit persons to whom the package is furnished to do so, subject to the following conditions:
 

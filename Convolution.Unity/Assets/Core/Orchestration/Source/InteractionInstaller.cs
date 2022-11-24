@@ -1,5 +1,6 @@
 ﻿using Convolution.DevKit.Interaction;
 using Convolution.Interaction;
+using Cysharp.Threading.Tasks;
 using Maxim.AssetManagement.Configurations;
 using Zenject;
 
@@ -7,10 +8,10 @@ namespace Convolution.Orchestration
 {
 	public sealed class InteractionInstaller : Installer<InteractionInstaller>
 	{
-		public override void InstallBindings()
+		public override async UniTask InstallBindings()
 		{
 			Container.Bind<Cursor>().ToSelf().AsSingle();
-			ConfigurationInstaller<CursorConfiguration>.Install(Container);
+			await ConfigurationInstaller<CursorConfiguration>.Install(Container);
 			
 			Container.BindInterfacesAndSelfTo<InteractionService>().AsSingle();
 		}

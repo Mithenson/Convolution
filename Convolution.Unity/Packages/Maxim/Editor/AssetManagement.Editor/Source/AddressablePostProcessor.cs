@@ -11,30 +11,33 @@ namespace Maxim.AssetManagement.Editor
 		private const string CollectionLabel = "Addressable";
 		private const string RootDirectory = "Assets";
 
-		private static readonly string FilterForCollectorSearch = $"t:{nameof(AddressableCollector)}";
-		private static readonly HashSet<string> CollectorPaths = new HashSet<string>();
-		private static readonly Queue<string> PathsForReimport = new Queue<string>();
+		private static readonly string _filterForCollectorSearch = $"t:{nameof(AddressableCollector)}";
+		private static readonly Dictionary<string, AddressableCollector> _collectorsByPath = new Dictionary<string, AddressableCollector>();
+		private static readonly Queue<string> _pathsForReimport = new Queue<string>();
 
 		[InitializeOnLoadMethod]
 		private static void Initialize()
 		{
-			foreach (var collectorPath in AssetDatabase.FindAssets(FilterForCollectorSearch).Select(AssetDatabase.GUIDToAssetPath))
-				CollectorPaths.Add(collectorPath);
+			foreach (var collectorPath in AssetDatabase.FindAssets(_filterForCollectorSearch).Select(AssetDatabase.GUIDToAssetPath))
+			{
+				var collector = AssetDatabase.LoadAssetAtPath<AddressableCollector>(collectorPath);
+				_collectorsByPath.Add(collectorPath, collector);
+			}
 			
 			EditorApplication.update += Tick;
 		}
 
 		private static void Tick()
 		{
-			if (PathsForReimport.Count == 0)
+			if (_pathsForReimport.Count == 0)
 				return;
 			
 			AssetDatabase.StartAssetEditing();
 
 			try
 			{
-				while (PathsForReimport.Count > 0)
-					AssetDatabase.ImportAsset(PathsForReimport.Dequeue());
+				while (_pathsForReimport.Count > 0)
+					AssetDatabase.ImportAsset(_pathsForReimport.Dequeue());
 			}
 			finally
 			{
@@ -48,16 +51,43 @@ namespace Maxim.AssetManagement.Editor
 			string[] movedAssetPaths, 
 			string[] movedAssetPreviousPaths)
 		{
+			var collectorByDirectory = new Dictionary<string, AddressableCollector>();
+			var manualEntryPathToCollector = new Dictionary<string, AddressableCollector>();
+			
+			foreach (var kvp in _collectorsByPath)
+			{
+				var directory = PathUtilities.GetDirectory(kvp.Key);
+				if (collectorByDirectory.ContainsKey(directory))
+				{
+					Debug.LogError(
+						$"More than one collectors are under the `Directory={directory}`. " + 
+						$"Only `{nameof(AddressableCollector)}={kvp.Value.name}` will be taken into account during the collection process " + 
+						$"aside manual entries.");
+				}
+				else
+				{
+					collectorByDirectory.Add(directory, kvp.Value);
+				}
+					
+				foreach (var manualEntry in kvp.Value.ManualEntries)
+				{
+					var path = AssetDatabase.GetAssetPath(manualEntry);
+					manualEntryPathToCollector.Add(path, kvp.Value);
+				}
+			}
+			
 			foreach (var path in importedAssetPaths)
 			{
 				var assetType = AssetDatabase.GetMainAssetTypeAtPath(path);
-				if (assetType == typeof(AddressableCollector))
+				if (assetType == typeof(AddressableCollector) && ! _collectorsByPath.ContainsKey(path))
 				{
-					CollectorPaths.Add(path);
+					var collector = AssetDatabase.LoadAssetAtPath<AddressableCollector>(path);
+					_collectorsByPath.Add(path, collector);
+					
 					continue;
 				}
 				
-				TryCollect(path);
+				TryCollect(manualEntryPathToCollector, collectorByDirectory, path);
 			}
 
 			for (var i = 0; i < movedAssetPaths.Length; i++)
@@ -67,19 +97,21 @@ namespace Maxim.AssetManagement.Editor
 				var assetType = AssetDatabase.GetMainAssetTypeAtPath(movedAssetPath);
 				if (assetType == typeof(AddressableCollector))
 				{
-					CollectorPaths.Remove(movedAssetPreviousPaths[i]);
-					CollectorPaths.Add(movedAssetPath);
+					_collectorsByPath.Remove(movedAssetPreviousPaths[i]);
+					
+					var collector = AssetDatabase.LoadAssetAtPath<AddressableCollector>(movedAssetPath);
+					_collectorsByPath.Add(movedAssetPath, collector);
 
 					continue;
 				}
 				
-				TryCollect(movedAssetPath);
+				TryCollect(manualEntryPathToCollector, collectorByDirectory, movedAssetPath);
 			}
 
 			var directoriesForAssetSearch = new string[1];
 			foreach (var path in deletedAssetPaths)
 			{
-				if (!CollectorPaths.Remove(path))
+				if (!_collectorsByPath.Remove(path))
 					continue;
 
 				directoriesForAssetSearch[0] = PathUtilities.GetDirectory(path);
@@ -88,57 +120,39 @@ namespace Maxim.AssetManagement.Editor
 				foreach (var guid in guids)
 				{
 					var pathForReimport = AssetDatabase.GUIDToAssetPath(guid);
-					PathsForReimport.Enqueue(pathForReimport);
+					_pathsForReimport.Enqueue(pathForReimport);
 				}
 			}
 		}
 
-		private static void TryCollect(string path)
+		private static void TryCollect(
+			Dictionary<string, AddressableCollector> manualEntryPathToCollector, 
+			Dictionary<string, AddressableCollector> collectorsByDirectory,
+			string path)
 		{
 			var guid = AssetDatabase.GUIDFromAssetPath(path);
+			
+			if (manualEntryPathToCollector.TryGetValue(path, out var collector))
+			{
+				collector.CreateOrAddAddressableEntry(guid);
+				return;
+			}
+			
 			var labels = AssetDatabase.GetLabels(guid);
-
 			if (!labels.Contains(CollectionLabel))
 				return;
 				
 			var directory = PathUtilities.GetDirectory(path);
-			var directoriesForCollectorSearch = new string[1];
-				
-			var collectorGuid = default(string);
 			do
 			{
-				directoriesForCollectorSearch[0] = directory;
-				
-				var collectorGuids = AssetDatabase.FindAssets(FilterForCollectorSearch, directoriesForCollectorSearch).Where(candidate =>
-				{
-					var candidatePath = AssetDatabase.GUIDToAssetPath(candidate);
-					var candidateDirectory = PathUtilities.GetDirectory(candidatePath);
-
-					return candidateDirectory == directory;
-
-				}).ToArray();
-				
-				if (collectorGuids.Length == 0)
-				{
-					directory = PathUtilities.GetParentDirectory(directory);
-					continue;
-				}
-
-				if (collectorGuids.Length > 1)
-				{
-					Debug.LogError(
-						$"More than one {nameof(AddressableCollector)} was found in `{nameof(directory)}={directory}` " + 
-						$"for the asset at `{nameof(path)}={path}`.");
-						
+				if (collectorsByDirectory.TryGetValue(directory, out collector))
 					break;
-				}
-
-				collectorGuid = collectorGuids[0];
-				break;
+				
+				directory = PathUtilities.GetParentDirectory(directory);
 			}
 			while (directory != null);
 
-			if (string.IsNullOrEmpty(collectorGuid))
+			if (collector == null)
 			{
 				Debug.LogWarning(
 					$"The asset at `{nameof(path)}={path}` was marked with the \"{CollectionLabel}\" label " + 
@@ -147,17 +161,8 @@ namespace Maxim.AssetManagement.Editor
 				AddressableAssetSettingsDefaultObject.Settings.RemoveAssetEntry(guid.ToString());
 				return;
 			}
-
-			var collectorPath = AssetDatabase.GUIDToAssetPath(collectorGuid);
-			var collector = AssetDatabase.LoadAssetAtPath<AddressableCollector>(collectorPath);
-				
+			
 			collector.CreateOrAddAddressableEntry(guid);
 		}
-
-		#region Utilities
-
-
-
-		#endregion
 	}
 }
