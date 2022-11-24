@@ -1,6 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.IO;
 using System.Linq;
+using System.Reflection;
 using Convolution.Core.EmbeddedMiniGames;
 using Convolution.DevKit.MiniGames;
 using Cysharp.Threading.Tasks;
@@ -15,6 +16,7 @@ namespace Convolution.Orchestration
 	public sealed class MiniGameContentInstaller : Installer<AddressableLabel, MiniGameContentInstaller>
 	{
 		private const string DefinitionFileName = "definition.json";
+		private const string DllFileExtension = ".dll";
 
 		private readonly AddressableLabel _embeddedMiniGameConfigurationLabel;
 		
@@ -33,14 +35,35 @@ namespace Convolution.Orchestration
 			{
 				foreach (var modDirectory in Directory.EnumerateDirectories(modsDirectory))
 				{
-					var files = Directory.GetFiles(modDirectory);
+					var dllFiles = new List<string>();
+					var definitionFile = default(string);
+
+					foreach (var file in Directory.GetFiles(modDirectory))
+					{
+						if (Path.GetFileName(file) == DefinitionFileName)
+						{
+							definitionFile = file;
+						}
+						else if (Path.GetExtension(file) == DllFileExtension)
+						{
+							dllFiles.Add(file);
+						}
+					}
 					
-					var definitionFile = files.FirstOrDefault(file => Path.GetFileName(file) == DefinitionFileName);
 					if (definitionFile == default)
 					{
-						Debug.LogError($"he mod at `Directory={modDirectory}` doesn't have a `File={DefinitionFileName}`.");
+						Debug.LogError($"The mod at `Directory={modDirectory}` doesn't have a `File={DefinitionFileName}`.");
 						continue;
 					}
+
+					if (dllFiles.Count == 0)
+					{
+						Debug.LogError($"The mod at `Directory={modDirectory}` was expected to have at least 1 .dll to load.");
+						continue;
+					}
+
+					foreach (var dllFile in dllFiles)
+						Assembly.LoadFile(dllFile);
 					
 					var definitionJson = File.ReadAllText(definitionFile);
 					var definition = JsonConvert.DeserializeObject<MiniGameDefinition>(definitionJson);

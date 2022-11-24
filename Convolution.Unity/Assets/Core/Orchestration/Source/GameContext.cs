@@ -25,7 +25,6 @@ namespace Convolution.Orchestration
 		public async UniTask Start(IMiniGameContent miniGameContent)
 		{
 			await _menuSceneReference.UnloadScene().ToUniTask();
-			_menuSceneReference.Reset();
 			
 			_miniGameContent = miniGameContent;
 
@@ -36,15 +35,12 @@ namespace Convolution.Orchestration
 		public async UniTask Restart()
 		{
 			await _gameSceneReference.UnloadScene().ToUniTask();
-			_gameSceneReference.Reset();
-			
 			await _gameSceneReference.LoadSceneAsync(LoadSceneMode.Additive).Task;
 		}
 
 		public async UniTask Leave()
 		{
 			await _gameSceneReference.UnloadScene().ToUniTask();
-			_gameSceneReference.Reset();
 
 			Configuration = null;
 			await _miniGameContent.Unload();

@@ -24,7 +24,5 @@ namespace Convolution.Orchestration
 		}
 
 		public AsyncOperationHandle<SceneInstance> UnloadScene() => _reference.UnLoadScene();
-		
-		public void Reset() => _reference.ReleaseAsset();
 	}
 }
