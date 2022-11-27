@@ -18,7 +18,8 @@ namespace Convolution.MiniGames.Sample
         public enum InputChannel : ushort
         {
             Movement = 1,
-            Direction = 2
+            Direction = 2,
+            Temp = 3
         }
 
         #endregion
@@ -64,7 +65,9 @@ namespace Convolution.MiniGames.Sample
 
         protected override void IMP_HandleInput(IControllerInput input, InputChannel channel)
         {
-            var vector2Input = (SimpleControllerInput<Vector2>)input;
+            if (!(input is SimpleControllerInput<Vector2> vector2Input))
+                return;
+            
             switch (channel)
             {
                 case InputChannel.Movement:

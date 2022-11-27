@@ -9,17 +9,16 @@ namespace Convolution.DevKit.Controllers
 	{
 		private void Awake()
 		{
-			Handle = GetComponentInChildren<Handle>();
 			Grid = GetComponent<Grid>();
-			
 			EXT_Awake();
 		}
 		protected virtual void EXT_Awake() { }
 		
 		public ushort InputChannel { get; set; }
 		public ControllerState State { get; private set; }
-		public Handle Handle { get; private set; }
 		public Grid Grid { get; private set; }
+		
+		public abstract Handle Handle { get; }
 
 		private void Update()
 		{
@@ -47,14 +46,14 @@ namespace Convolution.DevKit.Controllers
 		}
 		protected abstract bool IMP_TryStartInteraction(Cursor cursor);
 
-		public void Interact(Cursor cursor, Vector2 drag)
+		public void Interact(Cursor cursor)
 		{
-			if (IMP_TryPerpetuateInteraction(cursor, drag))
+			if (IMP_TryPerpetuateInteraction(cursor))
 				return;
 			
 			StartRecuperation();
 		}
-		protected abstract bool IMP_TryPerpetuateInteraction(Cursor cursor, Vector2 drag);
+		protected abstract bool IMP_TryPerpetuateInteraction(Cursor cursor);
 
 		public void EndInteraction(Cursor cursor)
 		{

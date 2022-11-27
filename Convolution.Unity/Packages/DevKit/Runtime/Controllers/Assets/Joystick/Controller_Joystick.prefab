@@ -254,7 +254,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _center: {fileID: 8833513719503721588}
-  _stick: {fileID: 9099763144247764572}
+  _handle: {fileID: 1862676892286359764}
   _extent: 2
   _resetInputOnInteractionEnd: 0
 --- !u!114 &8393062680275758419

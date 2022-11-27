@@ -38,7 +38,7 @@ namespace Convolution.Interaction
 
             if (_isInteracting)
             {
-                _closetHoveredController.Interact(_cursor, Vector2.zero);
+                _closetHoveredController.Interact(_cursor);
                 if (_closetHoveredController.State != ControllerState.BeingInteractedWith)
                     _isInteracting = false;
                 

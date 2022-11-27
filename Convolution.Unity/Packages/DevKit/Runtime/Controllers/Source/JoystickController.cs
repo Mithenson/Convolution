@@ -1,4 +1,6 @@
-﻿using UnityEngine;
+﻿using Convolution.DevKit.Interaction;
+using UnityEngine;
+
 using Cursor = Convolution.DevKit.Interaction.Cursor;
 
 namespace Convolution.DevKit.Controllers
@@ -9,7 +11,7 @@ namespace Convolution.DevKit.Controllers
 		private Transform _center;
 		
 		[SerializeField]
-		private Transform _stick;
+		private CircleHandle _handle;
 
 		[SerializeField]
 		[Min(0.1f)]
@@ -20,11 +22,19 @@ namespace Convolution.DevKit.Controllers
 
 		private Vector2 _input;
 
+		public override Handle Handle => _handle;
+		
+		protected override void EXT_Awake()
+		{
+			if (_handle == null)
+				_handle = GetComponentInChildren<CircleHandle>();
+		}
+
 		public override IControllerInput ComputeInput() => new SimpleControllerInput<Vector2>(_input);
 
 		protected override bool IMP_TryStartInteraction(Cursor cursor) => true;
 
-		protected override bool IMP_TryPerpetuateInteraction(Cursor cursor, Vector2 drag)
+		protected override bool IMP_TryPerpetuateInteraction(Cursor cursor)
 		{
 			var selfPosition = (Vector2)_center.position;
 
@@ -44,7 +54,7 @@ namespace Convolution.DevKit.Controllers
 			}
 
 			var stickPosition = selfPosition + delta;
-			_stick.transform.position = new Vector3(stickPosition.x, stickPosition.y, _stick.transform.position.z);
+			_handle.transform.position = new Vector3(stickPosition.x, stickPosition.y, _handle.transform.position.z);
 
 			return true;
 		}
@@ -53,7 +63,7 @@ namespace Convolution.DevKit.Controllers
 		{
 			var selfPosition = (Vector2)_center.position;
 			
-			_stick.transform.position = new Vector3(selfPosition.x, selfPosition.y, _stick.transform.position.z);
+			_handle.transform.position = new Vector3(selfPosition.x, selfPosition.y, _handle.transform.position.z);
 			
 			if (_resetInputOnInteractionEnd)
 				_input = Vector2.zero;
