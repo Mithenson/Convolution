@@ -25,8 +25,8 @@ MonoBehaviour:
     _inputChannel: 2
   - _chosenSelectionMode: 1
     _pickedBuiltInType: 0
-    _pickedPrefab: {fileID: 3771142775761833743, guid: a0eac0739f1705a4899b4006baae542b, type: 3}
-    _position: {x: 3, y: 0}
+    _pickedPrefab: {fileID: 2674764282470672682, guid: 119b52a029c113241b2f726bdcdbe724, type: 3}
+    _position: {x: 4, y: 0}
     _inputChannel: 3
   _definition:
     _name: Sample

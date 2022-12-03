@@ -1,4 +1,5 @@
-﻿using Maxim.Common.Extensions;
+﻿using System;
+using Maxim.Common.Extensions;
 using UnityEngine;
 
 namespace Convolution.DevKit.Interaction

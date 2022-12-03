@@ -1,5 +1,6 @@
 ﻿using Convolution.DevKit.Interaction;
 using UnityEngine;
+
 using Cursor = Convolution.DevKit.Interaction.Cursor;
 
 namespace Convolution.DevKit.Controllers
