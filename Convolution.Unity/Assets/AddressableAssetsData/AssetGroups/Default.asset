@@ -46,6 +46,11 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels:
     - EmbeddedMiniGame
+  - m_GUID: b6191c19130058241b16310209e625d6
+    m_Address: KartingMiniGameConfiguration
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - EmbeddedMiniGame
   m_ReadOnly: 0
   m_Settings: {fileID: 11400000, guid: 2660dd06d7c1cfb4381255ed6ad68a5c, type: 2}
   m_SchemaSet:

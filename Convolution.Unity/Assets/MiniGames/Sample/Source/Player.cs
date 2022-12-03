@@ -33,7 +33,7 @@ namespace Convolution.MiniGames.Sample
 		public void Move(Vector2 input)
 		{
 			var newPosition = transform.position + (Vector3)(input * (Time.deltaTime * _speed));
-			transform.position = _game.SpriteMaskDisplay.Wrap(newPosition, _game.Configuration.WrapPadding);
+			//transform.position = _game.CameraDisplay.Wrap(newPosition, _game.Configuration.WrapPadding);
 		}
         
 		public void Rotate(Vector2 input) => transform.rotation = Quaternion.Euler(0.0f, 0.0f, Mathf.Atan2(-input.x, input.y) * Mathf.Rad2Deg);

@@ -20,6 +20,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 8ea23a1c03c5c744ca86db7570aba6e2, type: 2}
   _manualEntries:
   - {fileID: 11400000, guid: d7b1bf93bdc12174ea7c3cf3160b2996, type: 2}
+  - {fileID: 11400000, guid: b6191c19130058241b16310209e625d6, type: 2}
   references:
     version: 1
     00000000:

@@ -35,7 +35,7 @@ namespace Convolution.MiniGames.Sample
 			
 			var displacement = Direction * (_speed * Time.deltaTime);
 			var newPosition = (Vector2)transform.position + displacement;
-			var inflatedBounds = _game.SpriteMaskDisplay.Bounds.Inflate(_game.Configuration.WrapPadding);
+			var inflatedBounds = _game.CameraDisplay.Bounds.Inflate(_game.Configuration.WrapPadding);
 			
 			if (!inflatedBounds.Contains(newPosition))
 			{

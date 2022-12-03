@@ -15,6 +15,13 @@ namespace Convolution.DevKit.Controllers
 		[SerializeField]
 		[Min(0.1f)]
 		private float _extent;
+
+		[SerializeField]
+		private Vector2 _mapping;
+
+		[SerializeField]
+		[Range(-1.0f, 1.0f)]
+		private float _restingValue;
 		
 		[SerializeField]
 		private bool _resetInputOnInteractionEnd;
@@ -30,21 +37,24 @@ namespace Convolution.DevKit.Controllers
 		protected override bool IMP_TryPerpetuateInteraction(Cursor cursor)
 		{
 			var selfPosition = (Vector2)_center.position;
-
 			var delta = (cursor.Position - selfPosition).y;
-			var distance = Mathf.Abs(delta);
-			
-			if (distance > _extent)
+
+			var ratio = default(float);
+			if (Mathf.Abs(delta) > _extent)
 			{
-				_input = 1.0f;
-				delta = _extent * Mathf.Sign(delta);
+				var sign = Mathf.Sign(delta);
+
+				ratio = 1.0f * sign;
+				delta = _extent * sign;
 			}
 			else
 			{
-				_input = delta == 0.0f ? 0.0f : distance / _extent;
+				ratio = delta == 0.0f ? 0.0f : delta / _extent;
 			}
 
+			_input = Mathf.Lerp(_mapping.x, _mapping.y, Mathf.InverseLerp(-1.0f, 1.0f, ratio));
 			_handle.transform.position = new Vector3(_handle.transform.position.x, selfPosition.y + delta, _handle.transform.position.z);
+			
 			return true;
 		}
 
@@ -54,9 +64,9 @@ namespace Convolution.DevKit.Controllers
 				return;
 			
 			var selfPosition = (Vector2)_center.position;
-			_handle.transform.position = new Vector3( _handle.transform.position.x, selfPosition.y, _handle.transform.position.z);
+			_handle.transform.position = new Vector3( _handle.transform.position.x, selfPosition.y + _extent * _restingValue, _handle.transform.position.z);
 
-			_input = 0.0f;
+			_input = Mathf.Lerp(_mapping.x, _mapping.y, Mathf.InverseLerp(-1.0f, 1.0f, _restingValue));
 		}
 
 		public override bool IMP_TryPerpetuateRecuperation() => false;

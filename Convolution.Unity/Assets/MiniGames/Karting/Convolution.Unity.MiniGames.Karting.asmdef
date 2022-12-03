@@ -1,0 +1,25 @@
+{
+    "name": "Convolution.Unity.MiniGames.Karting",
+    "rootNamespace": "Convolution",
+    "references": [
+        "GUID:0d8beb7f090555447a6cf5ce9e54dbb4",
+        "GUID:1e3c81a1b58b9604f8708412e7e90609",
+        "GUID:bddc0d7466f50c24f98357652ff7d5ec",
+        "GUID:a33276f181eec8648a25923e1a14abf5",
+        "GUID:9f6e6122364362f438fddd77c1ce05f8",
+        "GUID:32bdfea8680ec5c41bbc6098e8bb005c",
+        "GUID:bccf110ec9abc8045b5e1c7fe6eaa136",
+        "GUID:7d7ea9fdd4c28b44b8d3c9318bf2b3a0",
+        "GUID:e761b36537be1ee4ab8718885264eab8",
+        "GUID:770e1d1230db51d409c9d2d63fb96a6d"
+    ],
+    "includePlatforms": [],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
+}

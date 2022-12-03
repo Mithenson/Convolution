@@ -11,7 +11,7 @@ using Random = UnityEngine.Random;
 
 namespace Convolution.MiniGames.Sample
 {
-    public sealed class SampleMiniGame : MiniGame<SampleMiniGameConfiguration, MiniGameSpriteMaskDisplay, SampleMiniGame.InputChannel>
+    public sealed class SampleMiniGame : MiniGame<SampleMiniGameConfiguration, MiniGameTopDownCameraDisplay, SampleMiniGame.InputChannel>
     {
         #region Nested types
 
@@ -33,7 +33,7 @@ namespace Convolution.MiniGames.Sample
 
         public SampleMiniGame(
             SampleMiniGameConfiguration configuration, 
-            MiniGameSpriteMaskDisplay display,
+            MiniGameTopDownCameraDisplay display,
             ObjectFactory factory,
             PlayerModel playerModel,
             TimerModel timerModel) 
@@ -46,7 +46,7 @@ namespace Convolution.MiniGames.Sample
         }
 
         public SampleMiniGameConfiguration Configuration => _configuration;
-        public MiniGameSpriteMaskDisplay SpriteMaskDisplay => _display;
+        public MiniGameTopDownCameraDisplay CameraDisplay => _display;
 
         public override Task Bootup()
         {
@@ -58,8 +58,6 @@ namespace Convolution.MiniGames.Sample
             _bulletSpawnCountdown = _configuration.BulletSpawnInterval;
 
             _timerModel.GameStartTimestamp = Time.time;
-            
-            _display.Bootup();
             return Task.CompletedTask;
         }
 

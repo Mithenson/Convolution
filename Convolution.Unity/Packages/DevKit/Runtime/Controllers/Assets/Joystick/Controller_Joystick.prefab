@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 8833513719503721588}
   - component: {fileID: 4412365535993883054}
   - component: {fileID: 415440403108358304}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Base
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -93,7 +93,7 @@ GameObject:
   - component: {fileID: 1862676892286359764}
   - component: {fileID: 8695369762606192501}
   - component: {fileID: 8622909472988611683}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Handle
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -185,7 +185,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3961427373712791627}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Graph
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -219,7 +219,7 @@ GameObject:
   - component: {fileID: 989157135341842594}
   - component: {fileID: 3139576730369244668}
   - component: {fileID: 8393062680275758419}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Controller_Joystick
   m_TagString: Untagged
   m_Icon: {fileID: 0}

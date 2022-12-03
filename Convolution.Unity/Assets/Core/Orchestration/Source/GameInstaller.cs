@@ -89,6 +89,7 @@ namespace Convolution.Orchestration
             _miniGameContainer.BindInterfacesAndSelfTo(game.GetType()).FromInstance(game).AsSingle();
             
             await game.Bootup();
+            game.Display.Show();
             
             Container.Resolve<GameplayLoop>().Bootup(game, _miniGameContainer.Resolve<MiniGameKernel>());
         }

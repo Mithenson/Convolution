@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 8028144820792662857}
   - component: {fileID: 6714855084209693866}
   - component: {fileID: 4603721087582865343}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Torus
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -111,7 +111,7 @@ GameObject:
   - component: {fileID: 6589802505082543287}
   - component: {fileID: 1964546598502970132}
   - component: {fileID: 4809472713038764087}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Ring_03
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -192,7 +192,7 @@ GameObject:
   - component: {fileID: 1960410965233634675}
   - component: {fileID: 2380558818742739938}
   - component: {fileID: 3771142775761833743}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Controller_Wheel
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -288,7 +288,7 @@ GameObject:
   - component: {fileID: 8398223832038057659}
   - component: {fileID: 7495926304678210159}
   - component: {fileID: 6566902725137357341}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Ring_02
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -369,7 +369,7 @@ GameObject:
   - component: {fileID: 3650849015001438413}
   - component: {fileID: 5830193590145481429}
   - component: {fileID: 6445868037780373895}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Ring_01
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -448,7 +448,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8474516824575499484}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Graph
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -482,7 +482,7 @@ GameObject:
   - component: {fileID: 2260011965479506580}
   - component: {fileID: 3329014459524434937}
   - component: {fileID: 3376457819831069762}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Ring_04
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -563,7 +563,7 @@ GameObject:
   - component: {fileID: 6668699424299051972}
   - component: {fileID: 8068518973284710205}
   - component: {fileID: 7024652316200972208}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Base
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -642,7 +642,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1564435865775308398}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: TorusAnchor
   m_TagString: Untagged
   m_Icon: {fileID: 0}
