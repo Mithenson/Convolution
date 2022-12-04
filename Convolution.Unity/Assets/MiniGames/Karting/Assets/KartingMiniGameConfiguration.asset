@@ -26,8 +26,11 @@ MonoBehaviour:
   _definition:
     _name: Karting
   _kartPrefab: {fileID: 774090379934776774, guid: 1b55387de3dfc8942b82a2ba38e07480, type: 3}
-  _kartSteeringSmoothing: 0.25
-  _kartSpeed: 10
+  _kartSteeringSmoothing: 2.5
+  _kartAcceleration: 4
+  _kartMinSpeed: 1
+  _kartMaxSpeed: 3
+  _kartDeceleration: 3
   _cellSize: {x: 10, y: 10}
   _chunkPrefabs:
   - {fileID: 164680819221326883, guid: d3cb710821de1d846940b721868d8c61, type: 3}

@@ -13,7 +13,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2674764282470672682, guid: 119b52a029c113241b2f726bdcdbe724, type: 3}
       propertyPath: _mapping.x
-      value: 0
+      value: 0.2
       objectReference: {fileID: 0}
     - target: {fileID: 2674764282470672682, guid: 119b52a029c113241b2f726bdcdbe724, type: 3}
       propertyPath: _mapping.y

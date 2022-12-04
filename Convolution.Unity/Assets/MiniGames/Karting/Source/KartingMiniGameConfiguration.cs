@@ -13,10 +13,19 @@ namespace Convolution.MiniGames.Karting
 
         [SerializeField]
         private float _kartSteeringSmoothing;
+        
+        [SerializeField]
+        private float _kartAcceleration;
 
         [SerializeField]
-        private float _kartSpeed;
+        private float _kartMinSpeed;
         
+        [SerializeField]
+        private float _kartMaxSpeed;
+
+        [SerializeField]
+        private float _kartDeceleration;
+
         [SerializeField]
         private Vector2 _cellSize;
 
@@ -37,7 +46,10 @@ namespace Convolution.MiniGames.Karting
         
         public Kart KartPrefab => _kartPrefab;
         public float KartSteeringSmoothing => _kartSteeringSmoothing;
-        public float KartSpeed => _kartSpeed;
+        public float KartAcceleration => _kartAcceleration;
+        public float KartMinSpeed => _kartMinSpeed;
+        public float KartMaxSpeed => _kartMaxSpeed;
+        public float KartDeceleration => _kartDeceleration;
         public Vector2 CellSize => _cellSize;
         public IReadOnlyList<Chunk> ChunkPrefabs => _chunkPrefabs;
         public Chunk EndChunkPrefab => _endChunkPrefab;

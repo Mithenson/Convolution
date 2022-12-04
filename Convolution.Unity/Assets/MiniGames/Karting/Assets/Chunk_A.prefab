@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7084085114240704017}
   - component: {fileID: 1215725362144720649}
+  - component: {fileID: 6846896138889937999}
   m_Layer: 0
   m_Name: Obstacle_01
   m_TagString: Untagged
@@ -82,6 +83,22 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!58 &6846896138889937999
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 316597508797754440}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  serializedVersion: 2
+  m_Radius: 0.55
 --- !u!1 &395088825950547065
 GameObject:
   m_ObjectHideFlags: 0
@@ -92,6 +109,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5569604876649654655}
   - component: {fileID: 848411874177527551}
+  - component: {fileID: 701155407473210135}
   m_Layer: 0
   m_Name: Obstacle_02
   m_TagString: Untagged
@@ -164,6 +182,22 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!58 &701155407473210135
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 395088825950547065}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  serializedVersion: 2
+  m_Radius: 0.55
 --- !u!1 &2160291743422194642
 GameObject:
   m_ObjectHideFlags: 0
@@ -174,7 +208,7 @@ GameObject:
   m_Component:
   - component: {fileID: 993562577922296910}
   - component: {fileID: 3132983766024905520}
-  - component: {fileID: 4681938001202715494}
+  - component: {fileID: 7738578024140312271}
   m_Layer: 0
   m_Name: Chunk_A
   m_TagString: Untagged
@@ -211,7 +245,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 320f1a2b5aba4acf8f1e8049cb5b2e8d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!61 &4681938001202715494
+--- !u!61 &7738578024140312271
 BoxCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -247,6 +281,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2438322156045901574}
   - component: {fileID: 4865409126467254062}
+  - component: {fileID: 2685418174623979585}
   m_Layer: 0
   m_Name: Obstacle_03
   m_TagString: Untagged
@@ -319,3 +354,19 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!58 &2685418174623979585
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3133930412493686426}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  serializedVersion: 2
+  m_Radius: 0.55

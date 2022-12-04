@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Threading.Tasks;
 using Convolution.DevKit.Common;
 using Convolution.DevKit.Controllers;
@@ -25,7 +26,8 @@ namespace Convolution.MiniGames.Karting
 		private Kart _kart;
 		private float _kartSteering;
 		private float _kartSteeringVelocity;
-		private float _kartAcceleration;
+		private float _kartAccelerationRatio;
+		private float _kartSpeed;
 		private Vector2Int _kartCell;
 		
 		private Chunk[] _chunks;
@@ -39,7 +41,7 @@ namespace Convolution.MiniGames.Karting
 			_display.Camera.transform.position += (Vector3)_configuration.CameraOffset;
 			
 			_kart = _factory.Instantiate(_configuration.KartPrefab);
-			_kart.transform.position = _display.transform.position;
+			_kart.transform.position = new Vector3(_display.transform.position.x, _display.transform.position.y, 0.0f);
 
 			_chunks = new Chunk[9];
 			for (var i = 0; i < _chunks.Length; i++)
@@ -62,14 +64,15 @@ namespace Convolution.MiniGames.Karting
 					break;
 
 				case InputChannel.Acceleration:
-					_kartAcceleration = ((SimpleControllerInput<float>)input).Value;
+					_kartAccelerationRatio = ((SimpleControllerInput<float>)input).Value;
 					break;
 			}
 		}
         
 		public override MiniGameState Tick()
 		{
-			MoveKart();
+			if (!MoveKart())
+				return MiniGameState.Failed;
 			
 			var gridPosition = (Vector2)_display.transform.InverseTransformPoint(_kart.transform.position) + _configuration.CellSize * 0.5f;
 			if (_kartCell.y >= _configuration.Goal && gridPosition.y % _configuration.CellSize.y > _configuration.CellSize.y * 0.5f)
@@ -81,12 +84,37 @@ namespace Convolution.MiniGames.Karting
 			return MiniGameState.Running;
 		}
 
-		private void MoveKart()
+		private bool MoveKart()
 		{
 			var kartTransform = _kart.transform;
 			
 			kartTransform.rotation = Quaternion.Euler(0.0f, 0.0f, _kartSteering);
-			kartTransform.position += kartTransform.up * (_configuration.KartSpeed * _kartAcceleration * Time.deltaTime);
+			
+			_kartSpeed += (_kartAccelerationRatio * _configuration.KartAcceleration - _configuration.KartDeceleration) * Time.deltaTime;
+			_kartSpeed = Mathf.Clamp(_kartSpeed, _configuration.KartMinSpeed, _configuration.KartMaxSpeed);
+			var distance = _kartSpeed * Time.deltaTime;
+			var direction = kartTransform.up;
+			
+			var hits = new RaycastHit2D[10];
+			var contactFilter = new ContactFilter2D() { useTriggers = false };
+			var hitCount = _kart.Collider.Cast(direction, contactFilter, hits, distance);
+
+			if (hitCount == 0)
+			{
+				kartTransform.position += direction * distance;
+				return true;
+			}
+
+			var minDistance = distance;
+			for (var i = 0; i < hitCount; i++)
+			{
+				var hit = hits[i];
+				if (hit.distance < minDistance)
+					minDistance = hit.distance;
+			}
+			
+			kartTransform.position += direction * minDistance;
+			return false;
 		}
 
 		private void SyncChunks(Vector2 gridPosition)

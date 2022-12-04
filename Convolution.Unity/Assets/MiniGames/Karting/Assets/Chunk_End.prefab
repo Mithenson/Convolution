@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 993562577922296910}
   - component: {fileID: 164680819221326883}
-  - component: {fileID: 4681938001202715494}
+  - component: {fileID: 2430605585701539249}
   m_Layer: 0
   m_Name: Chunk_End
   m_TagString: Untagged
@@ -45,7 +45,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 320f1a2b5aba4acf8f1e8049cb5b2e8d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!61 &4681938001202715494
+--- !u!61 &2430605585701539249
 BoxCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
