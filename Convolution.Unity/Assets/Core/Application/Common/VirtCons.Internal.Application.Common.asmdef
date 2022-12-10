@@ -1,0 +1,19 @@
+{
+    "name": "VirtCons.Internal.Application.Common",
+    "rootNamespace": "",
+    "references": [
+        "GUID:615fc22abd9a5f14485dc992dddaadc6",
+        "GUID:2e05e0c63be67f94897b094828f76e6b",
+        "GUID:44fa23cdc1dae524f9e63051e638d0ad",
+        "GUID:1d4c1b4ee9fa1f644b0c8b20fea6f204"
+    ],
+    "includePlatforms": [],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
+}

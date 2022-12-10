@@ -1,14 +1,8 @@
 {
-    "name": "Maxim.Unity.AssetManagement.Editor",
+    "name": "Maxim.Common",
     "rootNamespace": "",
-    "references": [
-        "Maxim.Unity.AssetManagement",
-        "Unity.Addressables",
-        "Unity.Addressables.Editor"
-    ],
-    "includePlatforms": [
-        "Editor"
-    ],
+    "references": [],
+    "includePlatforms": [],
     "excludePlatforms": [],
     "allowUnsafeCode": false,
     "overrideReferences": false,

@@ -9,6 +9,14 @@
         "com.unity.addressables": "1.18.19"
       }
     },
+    "com.mithenson.virtcons": {
+      "version": "file:VirtCons",
+      "depth": 0,
+      "source": "embedded",
+      "dependencies": {
+        "com.mithenson.maxim": "0.1.0"
+      }
+    },
     "com.unity.2d.sprite": {
       "version": "1.0.0",
       "depth": 0,

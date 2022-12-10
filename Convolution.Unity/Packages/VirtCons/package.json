@@ -1,0 +1,20 @@
+{
+  "name": "com.mithenson.virtcons",
+  "version": "0.1.0",
+  "displayName": "VirtCons",
+  "description": "Development kit for VirtCons.",
+  "unity": "2020.3",
+  "keywords": [
+    "VirtCons",
+    "Development",
+    "Kit"
+  ],
+  "author": {
+    "name": "Mithenson",
+    "email": "frogmithenson@gmail.com"
+  },
+  "unityRelease": "20f1",
+  "dependencies": {
+    "com.mithenson.maxim": "0.1.0"
+  }
+}

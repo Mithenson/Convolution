@@ -1,0 +1,17 @@
+{
+    "name": "VirtCons.Internal.Gameplay",
+    "rootNamespace": "",
+    "references": [
+        "GUID:44fa23cdc1dae524f9e63051e638d0ad",
+        "GUID:1d4c1b4ee9fa1f644b0c8b20fea6f204"
+    ],
+    "includePlatforms": [],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
+}

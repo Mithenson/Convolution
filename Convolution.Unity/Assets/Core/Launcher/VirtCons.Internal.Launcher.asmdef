@@ -1,13 +1,10 @@
 {
-    "name": "Maxim.Unity.Inputs.Editor",
+    "name": "VirtCons.Internal.Launcher",
     "rootNamespace": "",
     "references": [
-        "Maxim.Unity.Inputs",
-        "Unity.InputSystem"
+        "GUID:44fa23cdc1dae524f9e63051e638d0ad"
     ],
-    "includePlatforms": [
-        "Editor"
-    ],
+    "includePlatforms": [],
     "excludePlatforms": [],
     "allowUnsafeCode": false,
     "overrideReferences": false,

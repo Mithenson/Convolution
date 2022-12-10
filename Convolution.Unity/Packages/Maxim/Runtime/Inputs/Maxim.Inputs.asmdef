@@ -1,9 +1,9 @@
 {
-    "name": "Maxim.Unity.Inputs",
+    "name": "Maxim.Inputs",
     "rootNamespace": "",
     "references": [
-        "Maxim.Unity.Common",
-        "Maxim.Unity.AssetManagement",
+        "Maxim.Common",
+        "Maxim.AssetManagement",
         "Unity.InputSystem",
         "Zenject",
         "UniTask"

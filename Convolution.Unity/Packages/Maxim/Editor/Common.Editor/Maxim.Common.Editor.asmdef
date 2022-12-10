@@ -1,8 +1,8 @@
 {
-    "name": "Maxim.Unity.Common.Editor",
+    "name": "Maxim.Common.Editor",
     "rootNamespace": "",
     "references": [
-        "Maxim.Unity.Common"
+        "Maxim.Common"
     ],
     "includePlatforms": [
         "Editor"

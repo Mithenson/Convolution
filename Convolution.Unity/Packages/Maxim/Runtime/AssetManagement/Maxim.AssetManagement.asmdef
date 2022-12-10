@@ -1,5 +1,5 @@
 {
-    "name": "Maxim.Unity.AssetManagement",
+    "name": "Maxim.AssetManagement",
     "rootNamespace": "",
     "references": [
         "Zenject",
