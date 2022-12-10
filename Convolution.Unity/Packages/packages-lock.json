@@ -1,13 +1,5 @@
 {
   "dependencies": {
-    "com.convolution.devkit": {
-      "version": "file:DevKit",
-      "depth": 0,
-      "source": "embedded",
-      "dependencies": {
-        "com.mithenson.maxim": "1.0.0"
-      }
-    },
     "com.mithenson.maxim": {
       "version": "file:Maxim",
       "depth": 0,
