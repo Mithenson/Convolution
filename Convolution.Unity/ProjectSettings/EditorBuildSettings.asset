@@ -6,7 +6,8 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 0
-    path: Assets/Core/Orchestration/Assets/Bootstrap.unity
-    guid: 76e1b026f5fe78543b0332eed8228398
+    path: Assets/Core/Application/Windows/Scenes/Bootstrap@Windows.unity
+    guid: b3997be60d8b83a4aaa38271ead3d3cf
   m_configObjects:
     com.unity.addressableassets: {fileID: 11400000, guid: 1d4f945d81ab34d49b451c1f61c71dd9, type: 2}
+    com.unity.input.settings: {fileID: 11400000, guid: e18a64dabc492ae458ec08c39708310e, type: 2}

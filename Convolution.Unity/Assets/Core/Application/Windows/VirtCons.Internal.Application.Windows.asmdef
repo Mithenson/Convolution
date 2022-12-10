@@ -1,7 +1,8 @@
 {
     "name": "VirtCons.Internal.Application.Windows",
-    "rootNamespace": "",
+    "rootNamespace": "VirtCons.Internal",
     "references": [
+        "GUID:0d8beb7f090555447a6cf5ce9e54dbb4",
         "GUID:615fc22abd9a5f14485dc992dddaadc6",
         "GUID:2e05e0c63be67f94897b094828f76e6b",
         "GUID:83ae478fdd2cf9c4fa99585b174e581c",

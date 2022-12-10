@@ -1,9 +1,8 @@
 {
-    "name": "VirtCons.Internal.Launcher",
+    "name": "VirtCons.Internal.Common",
     "rootNamespace": "VirtCons.Internal",
     "references": [
-        "GUID:0d8beb7f090555447a6cf5ce9e54dbb4",
-        "GUID:44fa23cdc1dae524f9e63051e638d0ad"
+        "GUID:75469ad4d38634e559750d17036d5f7c"
     ],
     "includePlatforms": [],
     "excludePlatforms": [],

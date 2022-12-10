@@ -1,7 +1,13 @@
 {
     "name": "VirtCons.Internal.Application.Common",
-    "rootNamespace": "",
+    "rootNamespace": "VirtCons.Internal",
     "references": [
+        "GUID:84651a3751eca9349aac36a66bba901b",
+        "GUID:0d8beb7f090555447a6cf5ce9e54dbb4",
+        "GUID:f51ebe6a0ceec4240a699833d6309b23",
+        "GUID:7d7ea9fdd4c28b44b8d3c9318bf2b3a0",
+        "GUID:e761b36537be1ee4ab8718885264eab8",
+        "GUID:255495f831562424d8da1b8095894079",
         "GUID:615fc22abd9a5f14485dc992dddaadc6",
         "GUID:2e05e0c63be67f94897b094828f76e6b",
         "GUID:44fa23cdc1dae524f9e63051e638d0ad",
