@@ -21,10 +21,6 @@ MonoBehaviour:
     m_Address: Launcher@Windows
     m_ReadOnly: 0
     m_SerializedLabels: []
-  - m_GUID: b3997be60d8b83a4aaa38271ead3d3cf
-    m_Address: Bootstrap@Windows
-    m_ReadOnly: 0
-    m_SerializedLabels: []
   m_ReadOnly: 0
   m_Settings: {fileID: 11400000, guid: 2660dd06d7c1cfb4381255ed6ad68a5c, type: 2}
   m_SchemaSet:

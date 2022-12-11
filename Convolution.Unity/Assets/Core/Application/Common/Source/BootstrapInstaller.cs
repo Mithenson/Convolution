@@ -1,9 +1,8 @@
 using AssetManagement.Source.Scenes;
 using Cysharp.Threading.Tasks;
 using UnityEngine;
-using UnityEngine.EventSystems;
 using UnityEngine.SceneManagement;
-using VirtCons.Internal.Common.Source;
+using VirtCons.Internal.Application.Common.Source.Windows;
 using Zenject;
 
 namespace VirtCons.Internal.Application.Common.Source
@@ -13,13 +12,14 @@ namespace VirtCons.Internal.Application.Common.Source
         [SerializeField]
         private SceneReference _launcherScene;
 
-        [SerializeField]
-        private EventSystem _eventSystem;
-        
         public override UniTask InstallBindings()
         {
-            Container.Bind<EventSystem>().ToSelf().FromInstance(_eventSystem).AsSingle();
-            Container.BindInterfacesAndSelfTo<TransparentBackgroundService>().AsSingle().NonLazy();
+            #if UNITY_EDITOR
+
+            Container.Bind<IApplicationService>().To<NullApplicationService>().AsSingle();
+            Container.Bind<IWindowService>().To<NullWindowService>().AsSingle();
+            
+            #endif   
             
             return UniTask.CompletedTask;
         }

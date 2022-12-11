@@ -130,9 +130,65 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 70824888234840288, guid: 519cd475ff83fac45a2a07ed915391bb, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300002, guid: 88dca061d041a2a4596563e6a38f66c8, type: 3}
+    - target: {fileID: 176116686219196438, guid: 519cd475ff83fac45a2a07ed915391bb, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 176116686219196438, guid: 519cd475ff83fac45a2a07ed915391bb, type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 176116686219196438, guid: 519cd475ff83fac45a2a07ed915391bb, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 176116686219196438, guid: 519cd475ff83fac45a2a07ed915391bb, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 176116686219196438, guid: 519cd475ff83fac45a2a07ed915391bb, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 176116686219196438, guid: 519cd475ff83fac45a2a07ed915391bb, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 569072000217027164, guid: 519cd475ff83fac45a2a07ed915391bb, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 569072000217027164, guid: 519cd475ff83fac45a2a07ed915391bb, type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 569072000217027164, guid: 519cd475ff83fac45a2a07ed915391bb, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 569072000217027164, guid: 519cd475ff83fac45a2a07ed915391bb, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 569072000217027164, guid: 519cd475ff83fac45a2a07ed915391bb, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 569072000217027164, guid: 519cd475ff83fac45a2a07ed915391bb, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 1505482751248202147, guid: 519cd475ff83fac45a2a07ed915391bb, type: 3}
       propertyPath: m_Name
       value: LauncherSceneRoot@Windows
+      objectReference: {fileID: 0}
+    - target: {fileID: 3739286773796363326, guid: 519cd475ff83fac45a2a07ed915391bb, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4034533014650922794, guid: 519cd475ff83fac45a2a07ed915391bb, type: 3}
       propertyPath: m_RootOrder
